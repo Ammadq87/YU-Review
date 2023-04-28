@@ -1,6 +1,7 @@
-# ProjectManager
 
-A simple Project Management application built with React
+# YU-Review
+
+A simple Review application for courses and professors at YorkU built with React
 
 ## Built with:
 
