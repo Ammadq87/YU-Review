@@ -1,6 +1,7 @@
 import '../styles/Navbar.css'
 import Search from './Search'
 import { useState } from 'react'
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
 
 /*
@@ -10,7 +11,13 @@ ToDo:
 
 export default function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    const linkStyle = {
+        'textDecoration': 'none',
+        'padding-left': '15px',
+        'fontSize': '14px',
+        'fontWeight': 'bold',
+        'color': 'rgb(227,24,55)'
+    };
 
     return (
         <div className='Navbar'>
@@ -23,24 +30,34 @@ export default function Navbar() {
                 <Search/>
             </div>
 
-            {
-                !isLoggedIn 
-                && 
-                <div className='links'>
-                    <a href=''>Login</a>
-                    <a href=''>Sign-up</a>
-                </div>
-            }
 
-            {
-                isLoggedIn 
-                && 
-                <div className='links'>
-                    <a href=''>My Profile</a>
-                </div>
-            }
+            <div className='linkContainer'>
 
-            
+                {
+                    !isLoggedIn 
+                    &&
+                    <div className='links'>
+                        <Link style={linkStyle} to='/'>Login</Link>
+                        <Link style={linkStyle} to='/Menu'>Sign-Up </Link>
+                    </div>                           
+                }
+
+                {
+                   isLoggedIn 
+                   &&
+                   <div className='links'>
+                       <Link style={linkStyle} to='/'>My Profile</Link>
+                   </div>   
+                }
+
+                
+            </div>
+
+            <Routes>
+                {/* <Route path='/login' element={}/> */}
+                {/* <Route path='/signup' element={}/> */}
+                {/* <Route path='*' element={<h1>Page Not Found</h1>}/> */}
+            </Routes>
         </div>
     )
 }
