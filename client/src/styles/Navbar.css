@@ -16,18 +16,8 @@
     margin-top: 10px;
 }
 
-.Navbar > .links {
-    display: flex;
-    width: 25%;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.links > a {
+.Navbar > .linkContainer{
     display: block;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: rgb(227,24,55);
+    width: 25%;
+    margin-top: 21px;
 }
