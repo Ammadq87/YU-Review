@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const course = require('./routes/course.js');
+const review = require('./routes/review.js');
 const PORT = 3000;
 
 app.get('/api', (req, res) => {
@@ -8,6 +9,7 @@ app.get('/api', (req, res) => {
 })
 
 app.use('/api/course', course);
+app.use('/api/review', review);
 
 app.listen(PORT, (err) => {
     if (err) 

@@ -27,6 +27,12 @@ class connectionDAO {
     getConnection() {
         return this.connection;
     }
+
+    checkConnection() {
+        if (!this.getConnection()) {
+            this.connect();
+        }
+    }
 }
 
 module.exports = {connectionDAO};
