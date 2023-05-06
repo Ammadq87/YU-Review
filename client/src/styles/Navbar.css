@@ -7,9 +7,15 @@
     width: 25%;
     text-align: right;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 22px;
     font-size: 14px;
 }
+
+.Navbar > .siteLogo > a {
+    text-decoration: none;
+    color: black;
+}
+
 
 .Navbar > .searchComponent {
     width: 50%;

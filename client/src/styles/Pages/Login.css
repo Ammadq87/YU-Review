@@ -1,0 +1,77 @@
+.loginPage {
+   
+}
+
+.loginForm {
+     width: 30%;
+     margin: auto;
+     margin-top: 25px;
+     padding: 10px;
+     border-radius: 5px;
+     box-shadow: 1px 3px 2px 1px lightgray;
+     border: 1px solid lightgray;
+}
+
+.loginForm > form > table > tr > td {
+    width: 1000px;
+}
+
+.loginForm > form > table > tr > td > a {
+    display: block;
+    margin-left: 20px;
+    margin-top: 10px;
+    outline: none;
+    width: 150px;
+    text-decoration: none;
+}
+
+.loginForm > form > table > tr > td > .fieldInput {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.loginForm > form > table > tr > .single {
+    width: 100%;
+}
+
+.loginForm > form > table > tr > .single > .fieldInput > input {
+    width: 95%;
+}
+
+.loginForm > form > table > tr > td > .fieldInput > label {
+    display: block;
+    margin: 3px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.loginForm > form > table > tr > td > .fieldInput > input {
+    width: 90%;
+    height: 25px;
+    border: 1px solid lightgray;
+    margin: 3px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.loginForm > form > table > tr > .buttons {
+    text-align: center;
+}
+
+.loginForm > form > table > tr > .buttons > button {
+    width: 95%;
+    margin-top: 25px;
+    height: 55px;
+    border-radius: 5px;
+    border:  1px solid rgb(227,24,55);
+    background-color: rgb(227,24,55);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.loginForm > form > table > tr > .buttons > button:active {
+    transform: scale(0.98);
+}

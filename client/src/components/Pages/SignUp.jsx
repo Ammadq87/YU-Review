@@ -2,11 +2,16 @@ import Banner from '../Banner';
 import Navbar from '../Navbar.jsx';
 import '../../styles/Pages/SignUp.css'
 
-export default function SignUp(props) {
+/*
+ToDo:
+Remove other fields from signup page and move the fields to the my profile page where user sets up their profile
+*/
+
+export default function SignUp() {
     return (
         <div className="SignUpPage">
             <Navbar/>
-            <Banner title={props.title}/>
+            <Banner title={'Sign Up'}/>
             
             <div className="signUpForm">
                 <form action="">
@@ -39,7 +44,7 @@ export default function SignUp(props) {
                             </td>
                         </tr>
 
-                        <tr>
+                        {/* <tr>
                             <td colSpan={1}>
                                 {GenerateTableRow('Major', 'text')}
                             </td>
@@ -58,7 +63,7 @@ export default function SignUp(props) {
                             <td colSpan={2} className='single'>
                                 {GenerateTableRow('Bio', 'text')}
                             </td>
-                        </tr>
+                        </tr> */}
 
                         <tr>
                             <td colSpan={2} className='buttons'>
