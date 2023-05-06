@@ -23,7 +23,7 @@ export default function Navbar() {
         <div className='Navbar'>
 
             <div className="siteLogo">
-                <p><span style={{'color': 'rgb(227,24,55)', 'fontWeight': 'bold'}}>YU</span> <span>Review</span></p>
+                <a href='/'><span style={{'color': 'rgb(227,24,55)', 'fontWeight': 'bold'}}>YU</span> <span>Review</span></a>
             </div>
 
             <div className="searchComponent">
@@ -37,8 +37,8 @@ export default function Navbar() {
                     !isLoggedIn 
                     &&
                     <div className='links'>
-                        <Link style={linkStyle} to='/'>Login</Link>
-                        <Link style={linkStyle} to='/Menu'>Sign-Up </Link>
+                        <Link style={linkStyle} to='/Login'>Login</Link>
+                        <Link style={linkStyle} to='/SignUp'>Sign-Up </Link>
                     </div>                           
                 }
 

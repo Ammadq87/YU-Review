@@ -7,10 +7,10 @@ ToDo:
 - Replace text in Banner, show main stats here
 */
 
-export default function Banner () {
+export default function Banner (props) {
     return (
         <div className="Banner">
-            <p>Courses and Professors at YorkU</p>
+            <p>{props.title}</p>
         </div>
     )
 }
