@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf, faUpLong, faDownLong } from '@fortawesome/free-solid-svg-icons'
-import Scores from './Scores';
 import '../styles/Review.css'
 
 export default function Review() {
