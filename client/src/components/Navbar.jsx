@@ -38,7 +38,7 @@ export default function Navbar() {
                     &&
                     <div className='links'>
                         <Link style={linkStyle} to='/'>Login</Link>
-                        <Link style={linkStyle} to='/Menu'>Sign-Up </Link>
+                        <Link style={linkStyle} to='/SignUp'>Sign-Up </Link>
                     </div>                           
                 }
 
