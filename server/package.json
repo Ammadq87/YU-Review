@@ -11,5 +11,10 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mysql": "^2.18.1"
   }
 }
+

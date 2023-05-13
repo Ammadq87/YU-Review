@@ -1,0 +1,29 @@
+.Navbar {
+    display: flex;
+    margin-top: 10px;
+}
+
+.Navbar > .siteLogo {
+    width: 25%;
+    text-align: right;
+    margin-right: 40px;
+    margin-top: 22px;
+    font-size: 14px;
+}
+
+.Navbar > .siteLogo > a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.Navbar > .searchComponent {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.Navbar > .linkContainer{
+    display: block;
+    width: 25%;
+    margin-top: 21px;
+}

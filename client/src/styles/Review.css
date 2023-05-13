@@ -1,0 +1,91 @@
+.reviewBlock {
+    display: flex;
+    border: 3px solid lightgray;
+    width: 1000px;
+    border-radius: 5px;
+}
+
+.profilePanel {
+    height: 100%;
+    width: 10%;
+}
+
+.profilePanel > .profile {
+    float: right;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.profilePanel > .profile > .background {
+    width: 64px;
+    height: 64px;
+    background-color: lightblue;
+    border-radius: 100%;
+}
+
+.reviewPanel {
+    height: 100%;
+    width: 65%;
+    padding: 10px;
+}
+
+.reviewPanel > .reviewContent {
+    font-size: 16px;
+    color: rgb(22, 22, 22);
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.reviewPanel > .reviewFooter {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgb(22, 22, 22);
+    font-style: italic;
+    word-wrap: break-word;
+}
+
+.reviewPanel > .reviewFooter > p > a {
+    font-weight: bold;
+}
+
+.reviewPanel > .reviewVote {
+    display: flex;
+}
+
+.reviewPanel > .reviewVote > .vote > button {
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-right: 5px;
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.reviewPanel > .reviewVote > .vote > button:hover {
+    background-color: lightgray;
+}
+
+.scoresPanel {
+    height: 100%;
+    width: 25%;
+}
+
+.scoresPanel > .score {
+    display: flex;
+}
+
+.scoresPanel > .score > .label{
+    font-weight: 600;
+    width: 100px;
+    color: rgb(98, 98, 98);
+    word-wrap: break-word;
+}
+
+.scoresPanel > .score > .stars{
+    padding-top: 15px;
+    margin-left: 10px;
+    display: inline;
+}
