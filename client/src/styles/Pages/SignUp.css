@@ -12,32 +12,32 @@
      border: 1px solid lightgray;
 }
 
-.signUpForm > form > table > tr > td {
+.signUpForm > form > table > tbody  > tr > td {
     width: 1000px;
     
 }
 
-.signUpForm > form > table > tr > td > .fieldInput {
+.signUpForm > form > table > tbody > tr > td > .fieldInput {
     margin-top: 20px;
     margin-left: 20px;
 }
 
-.signUpForm > form > table > tr > .single {
+.signUpForm > form > table > tbody  > tr > .single {
     width: 100%;
 }
 
-.signUpForm > form > table > tr > .single > .fieldInput > input {
+.signUpForm > form > table > tbody  > tr > .single > .fieldInput > input {
     width: 95%;
 }
 
-.signUpForm > form > table > tr > td > .fieldInput > label {
+.signUpForm > form > table > tbody  > tr > td > .fieldInput > label {
     display: block;
     margin: 3px;
     font-weight: 400;
     font-size: 15px;
 }
 
-.signUpForm > form > table > tr > td > .fieldInput > input {
+.signUpForm > form > table > tbody  > tr > td > .fieldInput > input {
     width: 90%;
     height: 25px;
     border: 1px solid lightgray;
@@ -46,11 +46,11 @@
     border-radius: 5px;
 }
 
-.signUpForm > form > table > tr > .buttons {
+.signUpForm > form > table > tbody  > tr > .buttons {
     text-align: center;
 }
 
-.signUpForm > form > table > tr > .buttons > button {
+.signUpForm > form > table > tbody  > tr > .buttons > button {
     width: 95%;
     margin-top: 25px;
     height: 55px;
@@ -64,6 +64,6 @@
     cursor: pointer;
 }
 
-.signUpForm > form > table > tr > .buttons > button:active {
+.signUpForm > form > table > tbody  > tr > .buttons > button:active {
     transform: scale(0.98);
 }

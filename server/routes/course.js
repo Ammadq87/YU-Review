@@ -21,3 +21,4 @@ router.get('/:code/professors', async (req, res) => {
 })
 
 module.exports = router;
+// method='POST' action="http://localhost:3000/api/users/signUp"

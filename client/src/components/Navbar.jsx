@@ -13,7 +13,7 @@ export default function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const linkStyle = {
         'textDecoration': 'none',
-        'padding-left': '15px',
+        'paddingLeft': '15px',
         'fontSize': '14px',
         'fontWeight': 'bold',
         'color': 'rgb(227,24,55)'
