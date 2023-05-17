@@ -6,6 +6,13 @@ import axios from 'axios';
 
 export default function Login(props) {
 
+    const bannerData = {
+        title: props?.data?.title ? props.data.title : 'Login', // Temp
+        subtitle: props?.data?.subtitle ? props.data.subtitle : '',
+        extend: false,
+        favouritable: false
+    };
+
     const [errorMsg, setErrorMsg] = useState('');
     
     
@@ -60,7 +67,7 @@ export default function Login(props) {
     return (
         <div className="loginPage">
             <Navbar/>
-            <Banner title={'Login'}/>
+            <Banner data={bannerData}/>
             <div className="loginForm">
                 <form action="">
                     <table>
