@@ -2,6 +2,7 @@ import Banner from '../Banner';
 import Navbar from '../Navbar.jsx';
 import '../../styles/Pages/SignUp.css'
 import { useState } from 'react';
+import axios from 'axios';
 
 /*
 ToDo:
@@ -9,35 +10,46 @@ Remove other fields from signup page and move the fields to the my profile page 
 */
 
 export default function SignUp() {
+    const fields = [
+        {label: 'First Name', type: 'text'}, 
+        {label: 'Last Name', type: 'text'},
+        {label: 'Email', type: 'email'},
+        {label: 'Password', type: 'password'},
+        {label: 'Confirm Password', type: 'password'}
+    ];
 
-    const formData = {
-        'FirstName': '',
-        'LastName': '',
-        'Email': '',
-        'Password': '',
-        'ConfirmPassword': ''
+    const api = axios.create({
+        baseURL: 'http://localhost:3000/api'
+    })
+
+    const [formInput, setFormInput] = useState({
+        FirstName: '',
+        LastName: '',
+        Email: '',
+        Password: '',
+        ConfirmPassword: ''
+    })
+
+    const handleFormChange = (e, field) => {
+        const value = e.target.value;
+        setFormInput({...formInput, [field.split(' ').join('')]: value});
     }
 
-    const [formState, setFormState] = useState(formData);
-    
-    function handleState(field, e) {
-        formState[field] = e.target.value;
-        setFormState(formState);
-        if(field === 'ConfirmPassword') {
-            if (formState['ConfirmPassword'] !== formState['Password'])
-                console.log('Passwords do not match')
-        }
-        console.log(formState);
-    }
-
-    const GenerateTableRow = (label, inputType) => {
+    const GenerateField = (field, i) => {
         return (
-            <div className='fieldInput'>
-                <label htmlFor="">{label}:</label>
-                <input type={inputType} onChange={(e) => handleState(label.replace(/\s+/g, ''), e)} />
-            </div>
+            <tr key={i}>
+                <td className='field'>
+                    <label htmlFor="">{field.label}:</label>
+                    <input type={field.type} onChange={e => handleFormChange(e, field.label)}/>
+                </td>
+            </tr>
         )
     }
+
+    const handleSubmit = async () => {
+        const res = await api.post('/users/signUp/', formInput);
+        console.log(res);
+    } 
 
     return (
         <div className="SignUpPage">
@@ -45,44 +57,32 @@ export default function SignUp() {
             <Banner title={'Sign Up'}/>
             
             <div className="signUpForm">
-                <form method='POST' action="http://localhost:3000/api/users/signUp">
+
+                <div className='image'>
+                    <img src="https://yorkulions.ca/images/2020/5/20/10199_YUAT_Lions_RGB_black_lion_black_YU.png" alt="" />
+                </div>
+
+                <div className="form">
                     <table>
                         <tbody>
+                            {
+                                fields.map((field, i) => {
+                                    return (
+                                        GenerateField(field, i)
+                                    )
+                                })
+                            }
+
                             <tr>
-                                <td colSpan={1}>
-                                    {GenerateTableRow('First Name', 'text')}
-                                </td>
-                                <td colSpan={1}>
-                                    {GenerateTableRow('Last Name', 'text')}
+                                <td className='actionItems'>
+                                    <button type='button' onClick={handleSubmit}>Get Started!</button>
+                                    <a href="/Login">Already have an account?</a>
                                 </td>
                             </tr>
 
-                            <tr>
-                                <td colSpan={2} className='single'>
-                                    {GenerateTableRow('Email', 'email')}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colSpan={2} className='single'>
-                                    {GenerateTableRow('Password', 'password')}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colSpan={2} className='single'>
-                                    {GenerateTableRow('Confirm Password', 'password')}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colSpan={2} className='buttons'>
-                                    <button onSubmit={handleSubmit}>Join Now</button>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
-                </form>
+                </div>
             </div>
         </div>
     )

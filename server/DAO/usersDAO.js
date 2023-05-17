@@ -7,7 +7,9 @@ class usersDAO extends connectionDAO {
       super
         .getConnection()
         .query(
-          `INSERT INTO Student VALUES (0,?,?,?,?);`,
+          `INSERT INTO Student 
+          (StudentID, FirstName, LastName, Email, Password)
+           VALUES (0,?,?,?,?);`,
           [
             userInfo.FirstName,
             userInfo.LastName,
@@ -21,6 +23,30 @@ class usersDAO extends connectionDAO {
         );
     });
   }
+
+  loginUser(userInfo) {
+    super.checkConnection();
+    return new Promise((resolve, reject) => {
+      super
+        .getConnection()
+        .query(
+          `SELECT *
+          FROM Student
+          WHERE Email=? AND Password=?`,
+          [
+            userInfo.Email,
+            userInfo.Password,
+          ],
+          (err, results) => {
+            if (err) reject('Invalid Credentials');
+            if (results == null || results.length === 0)
+              reject('Invalid Credentials');
+            resolve(JSON.stringify(results[0]));
+          }
+        );
+    });
+  }
+
 }
 
 module.exports = { usersDAO };
