@@ -57,6 +57,7 @@ export default function Course () {
             <div className="ReviewPageContent">
                 
                 <div className="details">
+                    
                     <div className="description">
                         <p>
                             {pageData['Description']}
@@ -75,11 +76,9 @@ export default function Course () {
                             <button><FontAwesomeIcon icon={faCirclePlus}/></button>
                         </div>
                     </div>
-            
+                
                 </div>
-            
             </div>
-
         </div>
     )
 }

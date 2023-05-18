@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Review from '../components/Review.jsx';
 
 /**
- * 
+ * @deprecated split into Course and Professor components
  * @param {object} props Fields - isCourse: boolean | value: string (course title or prof name)
  * @returns 
  */
