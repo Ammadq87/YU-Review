@@ -2,6 +2,7 @@ import {useParams} from 'react-router-dom'
 import Banner from "../components/Banner";
 import Navbar from "../components/Navbar";
 import axios from 'axios';
+import './styles/Course.css';
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsDown, faThumbsUp, faHeart, faCirclePlus } from '@fortawesome/free-solid-svg-icons'
@@ -55,7 +56,6 @@ export default function Course () {
             <Banner data={bannerData}/>
 
             <div className="ReviewPageContent">
-                
                 <div className="details">
                     
                     <div className="description">
@@ -66,15 +66,21 @@ export default function Course () {
             
                     <div className="actions">
                         <div className="ratingActions">
-                            <p>Share your thoughts on {pageData['CourseCode']}</p>
-                            <button><FontAwesomeIcon icon={faThumbsUp}/></button>
-                            <button><FontAwesomeIcon icon={faThumbsDown}/></button>
-                            <button>Leave a Review</button>
+                            <div className="ratings">
+                                <p>Share your thoughts on {pageData['CourseCode']}:</p>
+                                <p className='icon'><FontAwesomeIcon icon={faThumbsUp}/></p>
+                                <p className='icon'><FontAwesomeIcon icon={faThumbsDown}/></p>
+                            </div>
+
+                            <button className='reviewBtn'>Leave a Review</button>
                         </div>
+
                         <div className="otherActions">
-                            <button><FontAwesomeIcon icon={faHeart}/></button>
-                            <button><FontAwesomeIcon icon={faCirclePlus}/></button>
+                            <p>Course actions: </p>
+                            <p className='favouriteBtn'><a href='/' ><FontAwesomeIcon icon={faHeart}/></a></p>
+                            <p className='takenCourseBtn'><a href='/' ><FontAwesomeIcon icon={faCirclePlus}/></a></p>
                         </div>
+
                     </div>
                 
                 </div>
