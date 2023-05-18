@@ -22,7 +22,39 @@ class courseDAO extends connectionDAO{
         }
 
         return new Promise((resolve, reject) => {
-            super.getConnection().query('SELECT * FROM Course WHERE CourseCode=?',
+            super.getConnection().query('SELECT * FROM CourseReview WHERE CourseCode=?',
+                [code],
+                (err, results) => {
+                    if (err) 
+                        reject(err);
+                    resolve(results);
+                }
+            )
+        });
+    }
+
+    /**
+     * Retrieves all the course information + review statistics
+     * @param {number} code 
+     * @returns 
+     */
+    getCourseInformation(code) {
+        if (!super.getConnection()) {
+            super.connect();
+        }
+
+        return new Promise((resolve, reject) => {
+            super.getConnection().query(`
+            select
+                c.*,
+                sum(cr.Liked = 1) / count(*) * 100 as LikedPercentage,
+                sum(cr.Retake = 1) / count(*) * 100 as RetakePercentage,
+                avg(cr.Easiness) as Easiness,
+                avg(cr.Usefulness) as Usefulness
+            from CourseReview cr
+            inner join Course c 
+            on c.CourseCode = cr.CourseCode
+            where cr.CourseCode=?`,
                 [code],
                 (err, results) => {
                     if (err) 

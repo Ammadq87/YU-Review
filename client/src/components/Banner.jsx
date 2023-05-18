@@ -11,7 +11,7 @@ export default function Banner (props) {
 
     const bottomPosition = '20%';
     return (
-        <div className="Banner" style={{'height': props?.data?.extend?'200px':'100px'}}>
+        <div className="Banner" style={{'height': props?.data?.extend?'150px':'100px'}}>
             <h1 style={{'bottom': props?.data?.subtitle ? bottomPosition : '0%'}}>
                 {props?.data?.title}
             </h1>          

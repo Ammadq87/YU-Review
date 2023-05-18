@@ -6,22 +6,12 @@ import '../styles/Pages/Main.css'
 import axios from 'axios';
 
 export default function Main () {
-
-    const getCourse = () => {
-        axios.get('http://localhost:3000/api/course')
-        .then(res => {
-            console.log(res);
-        }).catch(err => {
-            console.log(err);
-        }) 
-    }
-
     return (
         <div className='Main'>
             <Navbar/>
             <Banner title={'Courses and Professors at YorkU'}/>
             <div className="layout">
-                <button onClick={getCourse}>Click</button>
+                <a href="/course/EECS3311">EECS 3311</a>
             </div>
         </div>
     )
