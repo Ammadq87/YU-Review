@@ -2,6 +2,8 @@ const express = require('express');
 const router = express();
 const courseDAO = require('../DAO/courseDAO.js');
 
+// Should only retrieve information related to courses excluding reviews
+
 router.get('/', async (req, res) => {
     const _courseDAO = new courseDAO.courseDAO();
     const courses = await _courseDAO.getAllCourses();
@@ -10,7 +12,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:code', async (req, res) => {
     const _courseDAO = new courseDAO.courseDAO();
-    const course = await _courseDAO.getCourseByCode(req.params.code);
+    const course = await _courseDAO.getCourseInformation(req.params.code);
     res.json(course);
 })
 

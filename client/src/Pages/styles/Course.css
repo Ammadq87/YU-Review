@@ -1,0 +1,63 @@
+.ReviewPageContent {
+    width: 60%;
+    margin: auto;
+    padding-left: 25px;
+}
+
+.otherActions > p {
+    display: inline;
+    font-size: 1em;
+    font-weight: 600;
+    color: rgb(69, 69, 69);
+}
+
+.otherActions > .favouriteBtn {
+    font-size: 1.75em;
+    margin-left: 15px;
+
+}
+
+.otherActions > .takenCourseBtn {
+    font-size: 1.75em;
+    margin-left: 15px;
+
+}
+
+.otherActions > .favouriteBtn > a {
+    color: rgb(227,24,55);
+} 
+
+.otherActions > .takenCourseBtn > a {
+    color: rgb(50, 50, 255);
+}
+
+
+.actions {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: rgb(69, 69, 69);
+    border: 1px solid lightgray;
+    padding: 10px;
+    box-shadow: 2px 2px 2px lightgray;
+    border-radius: 5px;
+}
+
+.ratingActions {
+    border: 1px solid black;
+    display: inline;    
+}
+
+.ratingActions > .ratings {
+    margin-left: 15px;
+    display: inline;
+    border: 1px solid green;
+}
+
+.ratingActions > .ratings > .icon {
+    display: inline;
+}
+
+.ratingActions > button {
+    display: block;
+    float: right;
+}

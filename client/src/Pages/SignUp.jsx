@@ -1,6 +1,6 @@
-import Banner from '../Banner';
-import Navbar from '../Navbar.jsx';
-import '../../styles/Pages/SignUp.css'
+import Banner from '../components/Banner';
+import Navbar from '../components/Navbar.jsx';
+import './styles/SignUp.css'
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -9,7 +9,14 @@ ToDo:
 Remove other fields from signup page and move the fields to the my profile page where user sets up their profile
 */
 
-export default function SignUp() {
+export default function SignUp(props) {
+    const bannerData = {
+        title: props?.data?.title ? props.data.title : 'Sign Up', // Temp
+        subtitle: props?.data?.subtitle ? props.data.subtitle : '',
+        extend: false,
+        favouritable: false
+    };
+
     const fields = [
         {label: 'First Name', type: 'text'}, 
         {label: 'Last Name', type: 'text'},
@@ -54,7 +61,7 @@ export default function SignUp() {
     return (
         <div className="SignUpPage">
             <Navbar/>
-            <Banner title={'Sign Up'}/>
+            <Banner data={bannerData}/>
             
             <div className="signUpForm">
 

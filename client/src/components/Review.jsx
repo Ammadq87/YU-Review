@@ -1,6 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf, faUpLong, faDownLong } from '@fortawesome/free-solid-svg-icons'
-import '../styles/Review.css'
+import './styles/Review.css'
+
+/*
+ToDo:
+- separate GenerateStar and GenerateUpVote components into separate components
+    -- only do this if necessary    
+- improves readabiliy 
+*/
 
 export default function Review() {
     const easyScore = new ScoreData('Easy', 5);
