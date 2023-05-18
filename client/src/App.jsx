@@ -2,12 +2,12 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Main from './components/Main.jsx'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
-import SignUp from './components/Pages/SignUp'
-import Login from './components/Pages/Login'
-import ReviewPage from './components/Pages/ReviewPage'
-import Course from './components/Pages/Course'
+import Main from './Pages/Main'
+import SignUp from './Pages/SignUp.jsx'
+import Login from './Pages/Login.jsx'
+import ReviewPage from './Pages/ReviewPage.jsx'
+import Course from './Pages/Course.jsx'
 
 function App() {
   const [count, setCount] = useState(0)

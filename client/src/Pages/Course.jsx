@@ -1,9 +1,10 @@
 import {useParams} from 'react-router-dom'
-import Banner from "../Banner";
-import Navbar from "../Navbar";
+import Banner from "../components/Banner";
+import Navbar from "../components/Navbar";
 import axios from 'axios';
 import { useEffect, useState } from "react";
-import Review from '../Review.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsDown, faThumbsUp, faHeart, faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 
 export default function Course () {
     const {courseCode} = useParams();
@@ -54,15 +55,29 @@ export default function Course () {
             <Banner data={bannerData}/>
 
             <div className="ReviewPageContent">
+                
                 <div className="details">
                     <div className="description">
                         <p>
-                            {/* {pageData['Description']} */}
+                            {pageData['Description']}
                         </p>
                     </div>
-                    <div className="scores">
+            
+                    <div className="actions">
+                        <div className="ratingActions">
+                            <p>Share your thoughts on {pageData['CourseCode']}</p>
+                            <button><FontAwesomeIcon icon={faThumbsUp}/></button>
+                            <button><FontAwesomeIcon icon={faThumbsDown}/></button>
+                            <button>Leave a Review</button>
+                        </div>
+                        <div className="otherActions">
+                            <button><FontAwesomeIcon icon={faHeart}/></button>
+                            <button><FontAwesomeIcon icon={faCirclePlus}/></button>
+                        </div>
                     </div>
+            
                 </div>
+            
             </div>
 
         </div>

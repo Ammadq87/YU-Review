@@ -29,22 +29,22 @@
     font-weight: 500;
   }
 
-  .favouritable button {
+  h1 > button {
     color: whitesmoke;
-    font-size: x-large;
+    font-size: 0.85em;
     width: 1px;
     height: 1px;
     position: absolute;
     top: 0;
     font-weight: bold;
-    margin-left: 15px;
+    margin-left: 25px;
   }
 
-  .favouritable button :hover{
+  h1 > button :hover{
     color: gold;
   }
 
-  .favouritable button :active {
+  h1 > button :active {
     transform: scale(0.95);
     color: gold;
   }

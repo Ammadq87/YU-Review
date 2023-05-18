@@ -1,8 +1,8 @@
-import Banner from "../Banner";
-import Navbar from "../Navbar";
+import Banner from "../components/Banner";
+import Navbar from "../components/Navbar";
 import axios from 'axios';
 import { useEffect, useState } from "react";
-import Review from '../Review.jsx';
+import Review from '../components/Review.jsx';
 
 /**
  * 

@@ -1,6 +1,6 @@
-import Banner from '../Banner';
-import Navbar from '../Navbar.jsx';
-import '../../styles/Pages/SignUp.css'
+import Banner from '../components/Banner';
+import Navbar from '../components/Navbar.jsx';
+import './styles/SignUp.css'
 import { useState } from 'react';
 import axios from 'axios';
 

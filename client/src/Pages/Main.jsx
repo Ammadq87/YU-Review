@@ -1,9 +1,6 @@
-import Navbar from './Navbar.jsx';
-import Banner from './Banner.jsx';
-import Review from './Review.jsx';
-import SignUp from './Pages/SignUp.jsx';
-import '../styles/Pages/Main.css'
-import axios from 'axios';
+import Navbar from '../components/Navbar.jsx';
+import Banner from '../components/Banner.jsx';
+import './styles/Main.css'
 
 export default function Main () {
     return (
