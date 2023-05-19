@@ -45,16 +45,16 @@ class courseDAO extends connectionDAO{
 
         return new Promise((resolve, reject) => {
             super.getConnection().query(`
-            select
-                c.*,
+                SELECT 
+                c.*, 
                 sum(cr.Liked = 1) / count(*) * 100 as LikedPercentage,
                 sum(cr.Retake = 1) / count(*) * 100 as RetakePercentage,
                 avg(cr.Easiness) as Easiness,
-                avg(cr.Usefulness) as Usefulness
-            from CourseReview cr
-            inner join Course c 
-            on c.CourseCode = cr.CourseCode
-            where cr.CourseCode=?`,
+                avg(cr.Usefulness) as Usefulness 
+                FROM Course c
+                LEFT JOIN CourseReview cr
+                ON c.CourseCode=cr.CourseCode
+                WHERE c.CourseCode=?;`,
                 [code],
                 (err, results) => {
                     if (err) 
