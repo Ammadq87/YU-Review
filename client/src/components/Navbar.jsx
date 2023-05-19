@@ -20,6 +20,8 @@ export default function Navbar() {
     };
 
     return (
+        <header>
+
         <div className='Navbar'>
             <div className="siteLogo">
                 <a href='/'><span style={{'color': 'rgb(227,24,55)', 'fontWeight': 'bold'}}>YU</span> <span>Review</span></a>
@@ -45,5 +47,7 @@ export default function Navbar() {
                 }
             </div>
         </div>
+        </header>
+
     )
 }

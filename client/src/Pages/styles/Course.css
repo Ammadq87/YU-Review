@@ -4,6 +4,15 @@
     padding-left: 25px;
 }
 
+.description {
+    margin-top: 15px;
+    border: 1px solid lightgray;
+    padding: 10px;
+    box-shadow: 2px 2px 2px lightgray;
+    border-radius: 5px;
+    background-color: white;
+}
+
 .otherActions > p {
     display: inline;
     font-size: 1em;
@@ -33,6 +42,7 @@
 
 
 .actions {
+    margin-top: 15px;
     font-size: 1.25em;
     font-weight: 600;
     color: rgb(69, 69, 69);
@@ -40,24 +50,41 @@
     padding: 10px;
     box-shadow: 2px 2px 2px lightgray;
     border-radius: 5px;
+    width: 60%;
+    background-color: white;
 }
 
 .ratingActions {
-    border: 1px solid black;
-    display: inline;    
+    display: flex;
 }
 
 .ratingActions > .ratings {
-    margin-left: 15px;
-    display: inline;
-    border: 1px solid green;
+    width: 70%;
+    display: flex;
 }
 
-.ratingActions > .ratings > .icon {
-    display: inline;
+.ratingActions > .ratings > .buttons {
+    display: flex;
+    margin: auto;
+    margin-left: 25px;
 }
 
-.ratingActions > button {
-    display: block;
-    float: right;
+.ratingActions > .ratings > .buttons > .icon {
+    background-color: transparent;
+    width: 35px;
+    text-align: center;
+    height: 35px;
+    border-radius: 5px;
+    margin-right: 5px;
+    border: 1px solid lightgray;
+    color: lightgray;
+}
+
+.ratingActions > .reviewBtn {
+    width: 30%;
+}
+
+.ratingActions > .reviewBtn > button {
+    width: 100%;
+    padding: 10px;
 }

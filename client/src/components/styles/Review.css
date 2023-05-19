@@ -1,7 +1,7 @@
 .reviewBlock {
     display: flex;
     border: 3px solid lightgray;
-    width: 1000px;
+    width: 70%;
     border-radius: 5px;
 }
 
@@ -25,7 +25,7 @@
 
 .reviewPanel {
     height: 100%;
-    width: 65%;
+    width: 55%;
     padding: 10px;
 }
 
