@@ -12,7 +12,8 @@ ToDo:
 export default function Review(props) {
     const easyScore = new ScoreData('Easy', props?.data?.Easiness);
     const usefulScore = new ScoreData('Usefulness', props?.data?.Usefulness);
-    const color = '#407edf'
+    const color = '#407edf';
+    const professorLink = `/professor/${props?.data?.ProfessorID}`;
     return (
 
         <div className="reviewBlock">
@@ -30,7 +31,7 @@ export default function Review(props) {
                 </div>
 
                 <div className="reviewFooter">
-                    <p>— {props?.data?.Username}, {props?.data?.Major} student {props?.data?.DatePosted} days ago, taught by <a href="">{props?.data?.Professor}</a></p>
+                    <p>— {props?.data?.Username}, {props?.data?.Major} student, {props?.data?.DatePosted !== 0 ? `${props?.data?.DatePosted} days ago` : 'posted recently'}, taught by <a href={professorLink}>{props?.data?.Professor}</a></p>
                 </div>
 
                 <div className="reviewVote">

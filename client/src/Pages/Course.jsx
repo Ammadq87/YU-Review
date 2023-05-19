@@ -40,14 +40,12 @@ export default function Course () {
 
 
     const getData = async () => {
-        console.log('ran')
         try {
             let generalInfo;
             let reviewInfo;
-            console.log(courseCode)
             if (location.toString().includes('course')) {
                 generalInfo = await api.get(`/course/${courseCode}`);
-                reviewInfo = await api.get(`/review/${courseCode}`); // ToDo - need to change route to be more specific
+                reviewInfo = await api.get(`/review/course/${courseCode}`); // ToDo - need to change route to be more specific
             } else {
                 generalInfo = await api.get(`/professor/${courseCode}`);
                 reviewInfo = await api.get(`/review/${courseCode}`); // ToDo - need to change route to be more specific
@@ -63,7 +61,7 @@ export default function Course () {
             setPageData(data);
 
         } catch (err) {
-            console.log('eeror --------------'+err);
+            console.log(err);
         }
     }
     

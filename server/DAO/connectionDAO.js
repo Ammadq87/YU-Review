@@ -5,7 +5,7 @@ class connectionDAO {
         this.connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'Ammadq87',
+            password: '1234',
             database: 'YU_Reviews'
         });
     }
