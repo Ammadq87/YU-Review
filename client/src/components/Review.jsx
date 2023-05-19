@@ -30,7 +30,7 @@ export default function Review(props) {
                 </div>
 
                 <div className="reviewFooter">
-                    <p>— {props?.data?.Username}, Computer Science (YU) student 4 days ago, taught by <a href="">{props?.data?.ProfessorID}</a></p>
+                    <p>— {props?.data?.Username}, {props?.data?.Major} student {props?.data?.DatePosted} days ago, taught by <a href="">{props?.data?.Professor}</a></p>
                 </div>
 
                 <div className="reviewVote">
