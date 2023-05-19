@@ -1,12 +1,12 @@
-import '../styles/Navbar.css'
-import Search from './Search'
+import './styles/Navbar.css'
+import Search from './Search.jsx'
 import { useState } from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
-
 /*
 ToDo:
-- switch between Login and MyProfile links after successful login
+- update Navbar on successful login
+    - switch between Login and MyProfile links after successful login
 */
 
 export default function Navbar() {
@@ -20,19 +20,16 @@ export default function Navbar() {
     };
 
     return (
-        <div className='Navbar'>
+        <header>
 
+        <div className='Navbar'>
             <div className="siteLogo">
                 <a href='/'><span style={{'color': 'rgb(227,24,55)', 'fontWeight': 'bold'}}>YU</span> <span>Review</span></a>
             </div>
-
             <div className="searchComponent">
                 <Search/>
             </div>
-
-
             <div className='linkContainer'>
-
                 {
                     !isLoggedIn 
                     &&
@@ -41,7 +38,6 @@ export default function Navbar() {
                         <Link style={linkStyle} to='/SignUp'>Sign-Up </Link>
                     </div>                           
                 }
-
                 {
                    isLoggedIn 
                    &&
@@ -49,15 +45,9 @@ export default function Navbar() {
                        <Link style={linkStyle} to='/'>My Profile</Link>
                    </div>   
                 }
-
-                
             </div>
-
-            <Routes>
-                {/* <Route path='/login' element={}/> */}
-                {/* <Route path='/signup' element={}/> */}
-                {/* <Route path='*' element={<h1>Page Not Found</h1>}/> */}
-            </Routes>
         </div>
+        </header>
+
     )
 }

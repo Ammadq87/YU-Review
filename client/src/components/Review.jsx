@@ -1,10 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf, faUpLong, faDownLong } from '@fortawesome/free-solid-svg-icons'
-import '../styles/Review.css'
+import './styles/Review.css'
 
-export default function Review() {
-    const easyScore = new ScoreData('Easy', 5);
-    const usefulScore = new ScoreData('Usefulness', 1);
+/*
+ToDo:
+- separate GenerateStar and GenerateUpVote components into separate components
+    -- only do this if necessary    
+- improves readabiliy 
+*/
+
+export default function Review(props) {
+    const easyScore = new ScoreData('Easy', props?.data?.Easiness);
+    const usefulScore = new ScoreData('Usefulness', props?.data?.Usefulness);
     const color = '#407edf'
     return (
 
@@ -19,11 +26,11 @@ export default function Review() {
 
             <div className="reviewPanel">
                 <div className="reviewContent">
-                This course will hit you hard, unless you ever done proofs before, everything will be new, its a new way of thinking. If you like math you should be interested enough to want to study, and it actually is pretty interesting. If you dont like math alot you just gotta grind it out. Do alot of practice and hit a quick 1-2 prayer before the final.
+                    {props?.data?.Review}
                 </div>
 
                 <div className="reviewFooter">
-                    <p>— Ammad Qureshi, Computer Science (YU) student 4 days ago, taught by <a href="">Jarek Gryz</a></p>
+                    <p>— {props?.data?.Username}, {props?.data?.Major} student {props?.data?.DatePosted} days ago, taught by <a href="">{props?.data?.Professor}</a></p>
                 </div>
 
                 <div className="reviewVote">

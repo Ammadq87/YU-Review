@@ -34,10 +34,25 @@ class reviewDAO extends connectionDAO {
         super.checkConnection();
         return new Promise((resolve, reject) => {
             super.getConnection().query(
-                `SELECT * 
+                `SELECT 
+                cr.Username,
+                (DATEDIFF(CURDATE(), cr.DatePosted)) as DatePosted,
+                cr.Review,
+                cr.Easiness,
+                cr.Usefulness,
+                cr.Liked,
+                cr.Retake,
+                p.Name as Professor,
+                m.Name as Major
                 FROM StudentCourseReview scr 
                 INNER JOIN CourseReview cr 
                 ON scr.ReviewID = cr.ReviewID 
+                LEFT JOIN Professor p 
+                ON p.ProfessorID = cr.ProfessorID
+                LEFT JOIN Student s
+                ON cr.StudentID = s.StudentID
+                LEFT JOIN Major m 
+                ON s.MajorID = m.MajorID
                 WHERE cr.CourseCode=?;`, 
                 [courseCode],
                 (err, results) => {

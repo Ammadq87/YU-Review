@@ -1,13 +1,20 @@
-.Navbar {
-    display: flex;
-    margin-top: 10px;
+header {
+    height: 100px;
+    background-color: white;
 }
+
+.Navbar {
+
+    display: flex;
+    background-color: white;
+}
+
 
 .Navbar > .siteLogo {
     width: 25%;
     text-align: right;
     margin-right: 40px;
-    margin-top: 22px;
+    margin-top: 35px;
     font-size: 14px;
 }
 
@@ -19,11 +26,11 @@
 
 .Navbar > .searchComponent {
     width: 50%;
-    margin-top: 10px;
+    margin-top: 25px;
 }
 
 .Navbar > .linkContainer{
     display: block;
     width: 25%;
-    margin-top: 21px;
+    margin-top: 35px;
 }
