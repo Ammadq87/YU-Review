@@ -70,7 +70,8 @@ CREATE TABLE StudentProfessorReview (
 
 CREATE TABLE CourseReviewRatings (
 	ReviewID INT,
-    ReviewLiked TINYINT,
+    Liked TINYINT,
+    Disliked TINYINT,
     StudentID INT,
     FOREIGN KEY (ReviewID) REFERENCES CourseReview(ReviewID),
     FOREIGN KEY (StudentID) REFERENCES Student(StudentID)  
@@ -78,7 +79,8 @@ CREATE TABLE CourseReviewRatings (
 
 CREATE TABLE ProfessorReviewRatings (
 	ReviewID INT,
-    ReviewLiked TINYINT,
+    Liked TINYINT,
+    Disliked TINYINT,
     StudentID INT,
     FOREIGN KEY (ReviewID) REFERENCES ProfessorReview(ReviewID),
     FOREIGN KEY (StudentID) REFERENCES Student(StudentID)  
