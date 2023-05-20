@@ -1,8 +1,9 @@
-DROP SCHEMA YU_Reviews;
+-- DROP SCHEMA YU_Reviews;
 
 CREATE SCHEMA YU_Reviews;
 
 USE YU_Reviews;
+
 
 CREATE TABLE Course (
 	CourseCode VARCHAR(8) PRIMARY KEY,
@@ -31,6 +32,8 @@ CREATE TABLE Student (
 	MajorID INT,
     FOREIGN KEY (MajorID) REFERENCES Major(MajorID) 
 );
+
+SELECT * FROM Student;
 
 CREATE TABLE CoursesTaught (
 	CourseCode VARCHAR(8),
@@ -92,4 +95,26 @@ CREATE TABLE StudentProfessorReview (
     ReviewID INT,
     FOREIGN KEY (ReviewID) REFERENCES ProfessorReview(ReviewID),
 	FOREIGN KEY (StudentID) REFERENCES Student(StudentID)    
+);
+
+select
+	c.*,
+	sum(cr.Liked = 1) / count(*) * 100 as LikedPercentage,
+	sum(cr.Retake = 1) / count(*) * 100 as RetakePercentage,
+	avg(cr.Easiness) as Easiness,
+	avg(cr.Usefulness) as Usefulness
+from CourseReview cr
+inner join Course c 
+on c.CourseCode = cr.CourseCode
+where cr.CourseCode = 'EECS3311' ;
+
+update Course
+set Description = 'A study of design methods and their use in the correct implementation, maintenance and evolution of software systems. Topics include design, implementation, testing, documentation needs and standards, support tools. Students design and implement components of a software system'
+where CourseCode = 'EECS3311';
+select * from Course;
+
+alter table CourseReview
+add column (
+	Likes TINYINT DEFAULT 0,
+    Dislikes TINYINT DEFAULT 0
 );

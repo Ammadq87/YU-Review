@@ -70,3 +70,15 @@ INSERT INTO CourseReview VALUES
 (0, 'EECS3311', 5, 1, 'Akshar', CURDATE(), 'I love software design', 2, 2, 0, 0),
 (0, 'EECS3101', 5, 2, 'Akshar', CURDATE(), 'i ahte dsa', 5, 1, 0, 1);
 SELECT * FROM CourseReview;
+
+SELECT * FROM Course;
+
+SELECT * FROM ProfessorReview;
+SELECT * FROM Professor;
+
+DELETE FROM ProfessorReview;
+INSERT INTO ProfessorReview VALUES
+-- (0, 'EECS3311', 1, 2, 'Ammad', CURDATE()-1, 'Very caring prof. Loves teaching this course, but his labes are sometimes confusing', 3, 3, 1,0),
+-- (0, 'EECS3311', 1, 2, 'Thanushan', CURDATE(), 'Easy-going prof. Course content is kinda tough, but better than Song Wang', 4, 3, 1,1);
+(0, 'EECS3101', 1, 1, 'Akshar', CURDATE()-100, 'Shit prof', 1, 2, 0,0)
+;
