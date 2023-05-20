@@ -43,6 +43,8 @@ class reviewDAO extends connectionDAO {
                 cr.Usefulness,
                 cr.Liked,
                 cr.Retake,
+                cr.Likes,
+                cr.Dislikes,
                 p.Name as Professor,
                 p.ProfessorID,
                 m.Name as Major
@@ -68,6 +70,45 @@ class reviewDAO extends connectionDAO {
 
 
     // ToDo: create functions for professor reviews
+
+    getProfessorReviews(id) {
+        super.checkConnection();
+        return new Promise((resolve, reject) => {
+            super.getConnection().query(
+                `SELECT 
+                cr.ReviewID,
+                cr.Username,
+                (DATEDIFF(CURDATE(), cr.DatePosted)) as DatePosted,
+                cr.Review,
+                cr.Easiness,
+                cr.Usefulness,
+                cr.Liked,
+                cr.Retake,
+                cr.Likes,
+                cr.Dislikes,
+                p.Name as Professor,
+                p.ProfessorID,
+                m.Name as Major
+                FROM StudentCourseReview scr 
+                INNER JOIN CourseReview cr 
+                ON scr.ReviewID = cr.ReviewID 
+                LEFT JOIN Professor p 
+                ON p.ProfessorID = cr.ProfessorID
+                LEFT JOIN Student s
+                ON cr.StudentID = s.StudentID
+                LEFT JOIN Major m 
+                ON s.MajorID = m.MajorID
+                WHERE cr.CourseCode=?;`, 
+                [courseCode],
+                (err, results) => {
+                    if (err)
+                        reject(err);
+                    resolve(results);
+                }
+            )
+        });
+    }
+
 }
 
 module.exports = {reviewDAO};

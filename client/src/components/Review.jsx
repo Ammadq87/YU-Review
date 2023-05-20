@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf, faUpLong, faDownLong } from '@fortawesome/free-solid-svg-icons'
 import './styles/Review.css'
@@ -14,6 +15,7 @@ export default function Review(props) {
     const usefulScore = new ScoreData('Usefulness', props?.data?.Usefulness);
     const color = '#407edf';
     const professorLink = `/professor/${props?.data?.ProfessorID}`;
+    
     return (
 
         <div className="reviewBlock">
@@ -35,8 +37,8 @@ export default function Review(props) {
                 </div>
 
                 <div className="reviewVote">
-                    {GenerateVoteUI(true)}
-                    {GenerateVoteUI(false)}
+                    {GenerateVoteUI(true, props?.data?.Likes)}
+                    {GenerateVoteUI(false, props?.data?.Dislikes)}
                 </div>
 
             </div>
@@ -44,10 +46,22 @@ export default function Review(props) {
             <div className="scoresPanel">
                 {GenerateScore(easyScore)}  
                 {GenerateScore(usefulScore)}
+                {GenerateTags('Liked', props?.data?.Liked)}
+                {GenerateTags('Would Retake', props?.data?.Retake)}
             </div>
 
         </div>
 
+    )
+}
+
+const GenerateTags = (name, num) => {
+    return (
+        <div className='tag'>
+            {
+                num === 1 && <p>{name}</p>  
+            }
+        </div>
     )
 }
 
@@ -103,13 +117,13 @@ const GenerateScore = (scoreData) => {
  * @param {boolean} isUpVote 
  * @returns 
  */
-const GenerateVoteUI = (isUpVote) => {
+const GenerateVoteUI = (isUpVote, value) => {
     return (
         <div className='vote'>
             <button>
                 <FontAwesomeIcon icon={isUpVote ? faUpLong : faDownLong}/>
             </button>
-            <p style={{'display': 'inline' }}>10</p>
+            <p style={{'display': 'inline' }}>{value}</p>
         </div>
     )
 }
