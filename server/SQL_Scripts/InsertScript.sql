@@ -19,24 +19,26 @@ INSERT INTO Student VALUES
 SELECT * FROM Student;
 
 INSERT INTO CourseReview VALUES 
-(0, 'LE-EECS-3311-3.00', 1, 'Hadi_Hemmati', 'Ammad', CURDATE()-10, 'Fun course, tough material', 2, 5, 1, 0, 5, 3),
-(0, 'LE-EECS-3311-3.00', 6, 'Song_Wang', 'Thanushan', CURDATE()-2, 'Mid Course, Easy stuff', 4, 3, 1, 1, 4, 4),
-(0, 'LE-EECS-3311-3.00', 5, 'Song_Wang', 'Akshar', CURDATE()-3, 'I love software design', 2, 2, 0, 0, 5, 2),
-(0, 'LE-EECS-3311-3.00', 5, 'Hadi_Hemmati', 'Bryan', CURDATE(), 'i ahte dsa', 5, 1, 0, 1, 5, 4);
+(0, 'LE-EECS-3311-3.00', 1, 'Hadi_Hemmati', 'Ammad', CURDATE()-10, 'Fun course, tough material', 2, 5, 1, 0, 0, 0),
+(0, 'LE-EECS-3311-3.00', 6, 'Song_Wang', 'Thanushan', CURDATE()-2, 'Mid Course, Easy stuff', 4, 3, 1, 1, 0, 0),
+(0, 'LE-EECS-3311-3.00', 5, 'Song_Wang', 'Akshar', CURDATE()-3, 'I love software design', 2, 2, 0, 0, 0, 0),
+(0, 'LE-EECS-3311-3.00', 5, 'Hadi_Hemmati', 'Bryan', CURDATE(), 'i ahte dsa', 5, 1, 0, 1, 0, 0);
 SELECT * FROM CourseReview;
 
 INSERT INTO ProfessorReview VALUES 
-(0, 'LE-EECS-3311-3.00', 1, 'Hadi_Hemmati', 'Ammad', CURDATE()-10, 'Fun course, tough material', 2, 5, 1, 0, 1, 2),
-(0, 'LE-EECS-3311-3.00', 6, 'Song_Wang', 'Thanushan', CURDATE()-2, 'Mid Course, Easy stuff', 4, 3, 1, 1, 4, 5),
-(0, 'LE-EECS-3311-3.00', 5, 'Song_Wang', 'Akshar', CURDATE()-3, 'I love software design', 2, 2, 0, 0, 5, 3),
-(0, 'LE-EECS-3311-3.00', 2, 'Hadi_Hemmati', 'Bryan', CURDATE(), 'i ahte dsa', 5, 1, 0, 1, 4, 5);
+(0, 'LE-EECS-3311-3.00', 1, 'Hadi_Hemmati', 'Ammad', CURDATE()-10, 'Fun course, tough material', 2, 5, 1, 0, 0, 0),
+(0, 'LE-EECS-3311-3.00', 6, 'Song_Wang', 'Thanushan', CURDATE()-2, 'Mid Course, Easy stuff', 4, 3, 1, 1, 0, 0),
+(0, 'LE-EECS-3311-3.00', 5, 'Song_Wang', 'Akshar', CURDATE()-3, 'I love software design', 2, 2, 0, 0, 0, 0),
+(0, 'LE-EECS-3311-3.00', 2, 'Hadi_Hemmati', 'Bryan', CURDATE(), 'i ahte dsa', 5, 1, 0, 1, 0, 0);
 SELECT * FROM ProfessorReview;
 
-INSERT INTO CourseReviewRatings VALUES 
-(1, 1, 0, 1),
-(1, 1, 0, 6),
-(1, 0, 1, 2),
-(2, 0, 1, 1);
-SELECT * FROM CourseReviewRatings crr;
+SELECT LikeAndDislikeProfessorReview(3,1,1);
+SELECT LikeAndDislikeProfessorReview(2,1,1);
+SELECT LikeAndDislikeProfessorReview(1,1,0);
+
+SELECT LikeAndDislikeCourseReview(3,1,1);
+SELECT LikeAndDislikeCourseReview(2,1,1);
+SELECT LikeAndDislikeCourseReview(1,1,0);
+
 
 

@@ -103,7 +103,22 @@ class reviewDAO extends connectionDAO {
         try {
             super.checkConnection();
             super.getConnection().query(
-                `SELECT LikeAndDisklikeCourseReview(?,?,?)`, 
+                `SELECT LikeAndDislikeCourseReview(?,?,?)`, 
+                [rID, sID, vote],
+                (results, err) => {
+                    if (err) console.log(err);
+                }
+            )
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    voteProfessorReview(sID, rID, vote) {
+        try {
+            super.checkConnection();
+            super.getConnection().query(
+                `SELECT LikeAndDislikeProfessorReview(?,?,?)`, 
                 [rID, sID, vote],
                 (results, err) => {
                     if (err) console.log(err);

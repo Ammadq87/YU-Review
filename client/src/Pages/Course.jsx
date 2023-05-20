@@ -14,16 +14,29 @@ TODO:
 */
 
 export default function Course () {
-    const {courseCode} = useParams();
-    
+    let {courseCode} = useParams();
+    let title; 
+
+    if (location.toString().includes('course')) {
+        const lastDotIndex = courseCode.lastIndexOf('-');
+        courseCode = courseCode.slice(0, lastDotIndex) + '.' + courseCode.slice(lastDotIndex + 1);
+        title = courseCode.substring(3, 12).split('-').join(' ')
+    } else {
+        title = courseCode.split('_').join(' ');
+    }  
+
     // Dictionary object containing general page information and review information
     const [pageData, setPageData] = useState({});
     const [bannerData, setBannerData] = useState({});
 
     //#region API Setup
-    const api = axios.create({
-        baseURL: 'http://localhost:3000/api'
+    const yorkApi = axios.create({
+        baseURL: 'https://yorkapi.isaackogan.com/v1/courses/info/FW_2022'
     });
+
+    const dbApi = axios.create({
+        baseURL: 'http://localhost:3000/api'
+    })
     //#endregion
 
     useEffect(() => {
@@ -32,8 +45,8 @@ export default function Course () {
 
     useEffect(() => {
         setBannerData({
-            title: pageData?.PageData?.data?.[0]?.CourseCode,
-            subtitle: pageData?.PageData?.data?.[0]?.Name,
+            title: title,
+            subtitle: pageData?.PageData?.data?.title,
             extend: true
         })
     }, [pageData]);
@@ -44,11 +57,11 @@ export default function Course () {
             let generalInfo;
             let reviewInfo;
             if (location.toString().includes('course')) {
-                generalInfo = await api.get(`/course/${courseCode}`);
-                reviewInfo = await api.get(`/review/course/${courseCode}`); // ToDo - need to change route to be more specific
+                generalInfo = await yorkApi.get(`/${courseCode}/schedule`);
+                reviewInfo = await dbApi.get(`/review/course/${courseCode}`); // ToDo - need to change route to be more specific
             } else {
-                generalInfo = await api.get(`/professor/${courseCode}`);
-                reviewInfo = await api.get(`/review/${courseCode}`); // ToDo - need to change route to be more specific
+                generalInfo = await yorkApi.get(`/${courseCode}`);
+                reviewInfo = await api.get(`/review/professor/${courseCode}`); // ToDo - need to change route to be more specific
             } 
 
             const data = {
@@ -57,7 +70,6 @@ export default function Course () {
             };
 
             console.log(data);
-
             setPageData(data);
 
         } catch (err) {
@@ -74,12 +86,12 @@ export default function Course () {
             <div className="ReviewPageContent">
                 <div className="details">
                     <div className="description">
-                        <p>{pageData?.PageData?.data?.[0]?.Description}</p>
+                        {/* <p>{pageData?.PageData?.data?.[0]?.Description}</p> */}
                     </div>
                     <div className="actions">
                         <div className="ratingActions">
                             <div className="ratings">
-                                <p>Opinions on {pageData?.PageData?.data?.[0]?.CourseCode}?</p>
+                                <p>Opinions on {title}?</p>
                                 <div className="buttons">
                                     <a href='/' className='icon'><FontAwesomeIcon icon={faThumbsUp}/></a>
                                     <a href='/' className='icon'><FontAwesomeIcon icon={faThumbsDown}/></a>

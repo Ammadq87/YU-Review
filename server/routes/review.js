@@ -60,4 +60,11 @@ router.post('/voteCourseReview', async (req, res) => {
     res.send("Up/Down Vote Success");
 })
 
+router.post('/voteProfessorReview', async (req, res) => {
+    const _reviewDAO = new reviewDAO.reviewDAO();
+    const [vote, sID, rID] = [req.body['vote'], req.body['reviewID'],req.body['studentID']]
+    await _reviewDAO.voteProfessorReview(sID, rID, vote);
+    res.send("Up/Down Vote Success");
+})
+
 module.exports = router;
