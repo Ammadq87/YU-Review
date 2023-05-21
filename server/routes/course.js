@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 router.get('/:code', async (req, res) => {
     const _courseDAO = new courseDAO.courseDAO();
     const course = await _courseDAO.getCourseInformation(req.params.code);
-    res.json(course);
+    res.json('deprecated');
 })
 
 // ToDo - implement search for courses

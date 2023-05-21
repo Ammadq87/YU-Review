@@ -4,13 +4,34 @@
     padding-left: 25px;
 }
 
-.description {
+.details > .timeTable {
     margin-top: 15px;
-    border: 1px solid lightgray;
-    padding: 10px;
     box-shadow: 2px 2px 2px lightgray;
     border-radius: 5px;
     background-color: white;
+}
+
+.details > .timeTable > h3 {
+    /* color: white; */
+    margin: auto;
+    text-align: left;
+    margin-left: 15px;
+    padding-top: 15px;
+    color: rgb(81, 81, 81);
+    /* width: 50%; */
+    /* padding-left: 25px; */
+    /* vertical-align: bottom; */
+}
+
+.details > .timeTable > .terms > button {
+    width: 50%;
+    background-color: lightgray;
+    border-radius: 0;
+    color: rgb(81, 81, 81);
+}
+
+.details > .timeTable > .terms > button:active {
+    transform: scale(0.99);
 }
 
 .otherActions > p {
