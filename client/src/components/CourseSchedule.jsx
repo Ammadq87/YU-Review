@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import './styles/CourseSchedule.css'
 
 export default function CourseSchedule (props) {
 
     if (!props || !props.pageData) {
-        // Handle the case when pageData is not available yet
         return <div>Loading...</div>;
     }
 
@@ -20,7 +20,11 @@ export default function CourseSchedule (props) {
                         <th>Location</th>
                         <th>Instructor</th>
                     </tr>
-
+                    <tr>
+                        <td colSpan={5} className="line">
+                            <hr />
+                        </td>
+                    </tr>
                     {
                         rowData.map((data,i) => {
                             return (
@@ -28,11 +32,6 @@ export default function CourseSchedule (props) {
                             )
                         })
                     }
-
-                    <tr>
-                        
-                    </tr>
-
                 </tbody>
             </table>
         </div>
@@ -41,10 +40,10 @@ export default function CourseSchedule (props) {
 
 const GenerateRow = (data, i) => {
     return (
-        <tr key={i}>
-            <td>{data.section}</td>
-            <td>{GetTime(data)[0]} — {GetTime(data)[1]}</td>
-            <td>
+        <tr key={i} className="row">
+            <td className="section">{data.section}</td>
+            <td className="time">{GetTime(data)[0]} — {GetTime(data)[1]}</td>
+            <td className="days">
                 {
                     FormatDays(GetDays(data)).map((day, i) => {
                         return (
@@ -55,13 +54,15 @@ const GenerateRow = (data, i) => {
                     })
                 }
             </td>
-            <td>{GetLocation(data)}</td>
-            <td>{GetInstructor(data).map((prof,i) => {
+            <td className="location">{GetLocation(data)}</td>
+            <td className="instructor">{GetInstructor(data).map((prof,i) => {
                 return (
                     <p key={i}>{prof}</p>
                 )
             })}</td>
+            
         </tr>
+        
     )
 }
 
@@ -98,7 +99,10 @@ const GetLocation = (rowData) => {
 
 const GetTime = (rowData) => {
     const timeInfo = rowData?.classes?.[0].schedule[0];
-    let startTime = timeInfo.time.split(':');
+    if (!timeInfo || !timeInfo.time) 
+        return ['---', '---'];
+    
+    let startTime = timeInfo?.time?.split(':');
     const d = parseFloat(timeInfo['duration']);
     const h = parseInt(startTime[0])
     let m = parseFloat(startTime[1]);
@@ -120,7 +124,7 @@ const FormatDays = (selectedDays) => {
     const output = [];
     days.forEach(day => {
         if (selectedDays.includes(day))
-            output.push(<span style={{'fontWeight': 900}}>{day}</span>)
+            output.push(<span className="bold">{day}</span>)
         else
             output.push(<span>{day}</span>)
     });

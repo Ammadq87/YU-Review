@@ -113,15 +113,25 @@ export default function Course () {
                 <div className="details">
                     <div className="timeTable">
 
-                        <p>Course Schedule</p>
+                        <h3>Course Schedule</h3>
 
                         <div className="terms">
-                            <button onClick={() => setIsFallTerm(true)}>Fall 2022</button>
-                            <button onClick={() => setIsFallTerm(false)}>Winter 2022</button>
+                            <button onClick={() => setIsFallTerm(true)} style={
+                                {'backgroundColor': isFallTerm ? 'rgb(227,24,55)' : 'lightgray',
+                                'color': isFallTerm ? 'white' : 'rgb(81, 81, 81)' 
+                                }
+                                }>Fall 2022</button>
+                            <button onClick={() => setIsFallTerm(false)} style={
+                                {'backgroundColor': !isFallTerm ? 'rgb(227,24,55)' : 'lightgray',
+                                'color': !isFallTerm ? 'white' : 'rgb(81, 81, 81)' 
+                                }
+                                }>Winter 2022</button>
                         </div>
 
-                        {isFallTerm && <CourseSchedule pageData={pageData?.ClassInfo?.[isFallTerm?'Fall':'Winter']}></CourseSchedule>}
+                        {isFallTerm && <CourseSchedule pageData={pageData?.ClassInfo?.['Fall']}></CourseSchedule>}
+                        {!isFallTerm && <CourseSchedule pageData={pageData?.ClassInfo?.['Winter']}></CourseSchedule>}
                         
+
                     </div>
                     <div className="actions">
                         <div className="ratingActions">

@@ -1,6 +1,4 @@
 import './styles/Banner.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faStar} from '@fortawesome/free-solid-svg-icons'
 
 /**
  * Banner component used for every page to display the title and any subtitles 
@@ -13,7 +11,6 @@ export default function Banner (props) {
         <div className="Banner" style={{'height': props?.data?.extend?'150px':'100px'}}>
             <h1 style={{'bottom': props?.data?.subtitle ? bottomPosition : '0%'}}>
                 {props?.data?.title}
-                {props?.data?.extend && <button><FontAwesomeIcon icon={faStar}/></button>}
             </h1>          
             <h2>{props?.data?.subtitle}</h2>
         </div>
