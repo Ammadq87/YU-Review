@@ -8,6 +8,7 @@ import SignUp from './Pages/SignUp.jsx'
 import Login from './Pages/Login.jsx'
 import ReviewPage from './Pages/ReviewPage.jsx'
 import Course from './Pages/Course.jsx'
+import Welcome from './Pages/Welcome';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Main/>}/>
+          <Route path='/Welcome' element={<Welcome/>}/>
           <Route path='/SignUp' element={<SignUp/>}/>
           <Route path='/Login' element={<Login/>}/>
           <Route path='/course/:courseCode' element={<Course/>}/>

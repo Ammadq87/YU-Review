@@ -1,5 +1,6 @@
 html {
   background-color: rgb(242,243,247);
+  scroll-behavior: smooth;
 }
 /* #root {
   max-width: 1280px;

@@ -64,7 +64,10 @@ export default function Course () {
                 generalInfo = await yorkApi.get(`/${courseCode}/schedule`);
                 reviewInfo = await dbApi.get(`/review/course/${courseCode}`); // ToDo - need to change route to be more specific
             } else {
-                generalInfo = await yorkApi.get(`/${courseCode}`);
+                /*
+                 * Have to go through generalInfo of courses, traverse through each and get courses taught by prof
+                 */
+                generalInfo = await yorkApi.get(`/${courseCode}/teachers`);
                 reviewInfo = await dbApi.get(`/review/professor/${courseCode}`); // ToDo - need to change route to be more specific
             } 
 
