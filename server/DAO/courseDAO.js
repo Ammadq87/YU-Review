@@ -1,42 +1,18 @@
 const {connectionDAO} = require('./connectionDAO.js');
 class courseDAO extends connectionDAO{
     getAllCourses() {
-        if (!super.getConnection()) {
-            super.connect();
-        }
-
-        return new Promise((resolve, reject) => {
-            super.getConnection().query('SELECT * FROM Course;',
-                (err, results) => {
-                    if (err) 
-                        reject(err);
-                    resolve(results);
-                }
-            )
-        });
+        // ToDo - Replace with API call from: https://yorkapi.isaackogan.com/docs/
     }
 
     getCourseByCode(code) {
-        if (!super.getConnection()) {
-            super.connect();
-        }
-
-        return new Promise((resolve, reject) => {
-            super.getConnection().query('SELECT * FROM CourseReview WHERE CourseCode=?',
-                [code],
-                (err, results) => {
-                    if (err) 
-                        reject(err);
-                    resolve(results);
-                }
-            )
-        });
+        // ToDo - Replace with API call from: https://yorkapi.isaackogan.com/docs/
     }
 
     /**
      * Retrieves all the course information + review statistics
      * @param {number} code 
      * @returns 
+     * @deprecated information not available
      */
     getCourseInformation(code) {
         if (!super.getConnection()) {
@@ -65,21 +41,13 @@ class courseDAO extends connectionDAO{
         });
     }
 
+    /**
+     * 
+     * @param {*} code 
+     * @returns 
+     */
     getProfessorsTeachingCourse(code) {
-        if (!super.getConnection()) {
-            super.connect();
-        }
-
-        return new Promise((resolve, reject) => {
-            super.getConnection().query('SELECT * FROM CoursesTaught WHERE CourseCode=?',
-                [code],
-                (err, results) => {
-                    if (err) 
-                        reject(err);
-                    resolve(results);
-                }
-            )
-        });
+        // ToDo - Replace with API call from: https://yorkapi.isaackogan.com/docs/
     }
 }
 

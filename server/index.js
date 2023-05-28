@@ -7,6 +7,8 @@ const users = require('./routes/users.js');
 const PORT = 3000;
 const cors = require('cors')
 
+// api to use: https://yorkapi.isaackogan.com/v1/courses/info/FW_2022/LE-EECS-3311-3.00/teachers
+
 // Parse URL-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 

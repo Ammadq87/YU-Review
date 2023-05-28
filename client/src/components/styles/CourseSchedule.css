@@ -1,0 +1,52 @@
+table {
+    /* border: 1px solid red; */
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table > tbody > tr > td, th {
+    width: fit-content;
+    /* border: 1px solid black; */
+    text-align: left;
+    height: 1em;
+    padding-left: 15px;
+}
+
+.line {
+    padding: 0%;
+}
+
+.line > hr {
+    height: 1px;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+}
+
+table > tbody > tr > td {
+    color: gray;
+    padding-left: 15px;
+
+}
+
+table > tbody > tr > .section{
+    width: 100px;
+}
+
+table > tbody > tr > .time, .days{
+    width: 200px;
+}
+
+table > tbody > tr > .days > p {
+    margin-right: 2px;
+    display: flex;
+    font-weight: 500;
+}
+
+table > tbody > tr > .days > p > span {
+    color: gray;
+}
+
+table > tbody > tr > .days > p > .bold {
+    font-weight: 900;
+    color: rgb(44, 44, 44);
+}

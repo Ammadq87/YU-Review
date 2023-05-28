@@ -30,30 +30,30 @@ class reviewDAO extends connectionDAO {
      * @param {string} courseCode 
      * @returns 
      */
-    getCourseReviews(courseCode) {
+    getCourseReviewsByCode(courseCode) {
         super.checkConnection();
         return new Promise((resolve, reject) => {
             super.getConnection().query(
                 `SELECT 
-                cr.ReviewID,
-                cr.Username,
+                scr.ReviewID,
+                scr.StudentID,
+                cr.CourseCode,
                 (DATEDIFF(CURDATE(), cr.DatePosted)) as DatePosted,
-                cr.Review,
                 cr.Easiness,
                 cr.Usefulness,
                 cr.Liked,
                 cr.Retake,
-                p.Name as Professor,
-                p.ProfessorID,
-                m.Name as Major
-                FROM StudentCourseReview scr 
-                INNER JOIN CourseReview cr 
-                ON scr.ReviewID = cr.ReviewID 
-                LEFT JOIN Professor p 
-                ON p.ProfessorID = cr.ProfessorID
+                cr.Likes,
+                cr.Dislikes,
+                cr.ProfessorName,
+                cr.Username,
+                cr.Review
+                FROM StudentCourseReview scr
+                INNER JOIN CourseReview cr
+                ON cr.ReviewID = scr.ReviewID
                 LEFT JOIN Student s
                 ON cr.StudentID = s.StudentID
-                LEFT JOIN Major m 
+                LEFT JOIN Major m
                 ON s.MajorID = m.MajorID
                 WHERE cr.CourseCode=?;`, 
                 [courseCode],
@@ -66,8 +66,68 @@ class reviewDAO extends connectionDAO {
         });
     }
 
+    getProfessorReviews(name) {
+        super.checkConnection();
+        return new Promise((resolve, reject) => {
+            super.getConnection().query(
+                `SELECT 
+                spr.StudentID,
+                spr.ReviewID,
+                pr.CourseCode,
+                pr.ProfessorName,
+                pr.Username,
+                (DATEDIFF(CURDATE(), pr.DatePosted)) as DatePosted,
+                pr.Review,
+                pr.Engaging,
+                pr.Clarity,
+                pr.Liked,
+                pr.Retake,
+                pr.Likes,
+                pr.Dislikes
+                FROM StudentProfessorReview spr
+                INNER JOIN ProfessorReview pr
+                ON spr.ReviewID = pr.ReviewID
+                WHERE pr.ProfessorName=?;`, 
+                [name],
+                (err, results) => {
+                    if (err)
+                        reject(err);
+                    resolve(results);
+                }
+            )
+        });
+    }
 
-    // ToDo: create functions for professor reviews
+
+    voteCourseReview(sID, rID, vote) {
+        try {
+            super.checkConnection();
+            super.getConnection().query(
+                `SELECT LikeAndDislikeCourseReview(?,?,?)`, 
+                [rID, sID, vote],
+                (results, err) => {
+                    if (err) console.log(err);
+                }
+            )
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    voteProfessorReview(sID, rID, vote) {
+        try {
+            super.checkConnection();
+            super.getConnection().query(
+                `SELECT LikeAndDislikeProfessorReview(?,?,?)`, 
+                [rID, sID, vote],
+                (results, err) => {
+                    if (err) console.log(err);
+                }
+            )
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }
 
 module.exports = {reviewDAO};

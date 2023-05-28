@@ -29,6 +29,7 @@
     height: 100%;
     width: 55%;
     padding: 10px;
+    /* border: 1px solid blue; */
 }
 
 .reviewPanel > .reviewContent {
@@ -77,10 +78,27 @@
 .scoresPanel {
     height: 100%;
     width: 30%;
+    /* border: 1px solid red; */
 }
 
 .scoresPanel > .score {
     display: flex;
+    /* border: 1px solid green; */
+}
+
+.scoresPanel > .tag {
+    display: inline;
+    margin-right: 5px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.scoresPanel > .tag > p {
+    display: inline;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .scoresPanel > .score > .label{
@@ -95,3 +113,4 @@
     margin-left: 10px;
     display: inline;
 }
+
