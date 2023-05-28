@@ -8,6 +8,7 @@ export default function Search() {
     const [search, setSearch] = useState('');
     const [courseList, setCourseList] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
+    const [viewResults, setViewResults] = useState(false);
     const explore = 'Explore other courses offered at YorkU';
 
     const yorkApi = axios.create({
@@ -30,8 +31,12 @@ export default function Search() {
         }
     }
 
-    const searchForCourse = () => {
-        const value = search.toUpperCase().split(' ').join('-');
+    const searchForCourse = (x) => {
+        setSearch(e => x?.target?.value);
+        const value = search?.toUpperCase().split(' ').join('-');
+        if (!value)
+            return;
+        
         let res = courseList.filter(course => {
             return course.includes(value);
         })
@@ -62,20 +67,24 @@ export default function Search() {
     return (
         <div className="SearchBar">
             <div className="Search">
-                <input type="text" placeholder="Search for courses or professors" onChange={e => setSearch(e.target.value)}/>
+                <input type="text" placeholder="Search for courses or professors" onBlur={() => setViewResults(true)} onFocus={() => setViewResults(true)} onChange={e => searchForCourse(e)}/>
                 <button onClick={searchForCourse}><FontAwesomeIcon icon={faSearch}></FontAwesomeIcon></button>
             </div>
-            <div className="SearchResults">
+
+            {
+                viewResults && 
+                <div className="SearchResults">
                 {
-                    searchResults.map(res => {
+                    searchResults.map((res, i) => {
                         return (
-                            <p>
+                            <p key={i} className='result'>
                                 <a href={generateLink(res)}>{res}</a>
                             </p>
                         )
                     })
                 }
-            </div>
+                </div>
+            }
         </div>
     );
 }

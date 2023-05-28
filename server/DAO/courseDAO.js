@@ -49,6 +49,52 @@ class courseDAO extends connectionDAO{
     getProfessorsTeachingCourse(code) {
         // ToDo - Replace with API call from: https://yorkapi.isaackogan.com/docs/
     }
+
+    getCourseListingInfo() {
+        super.checkConnection();
+        return new Promise((resolve, reject) => {
+            super.getConnection().query(
+                `SELECT 
+                cr.CourseCode,
+                SUM(cr.Easiness)/(5*COUNT(*))*100 AS Easy, 
+                SUM(cr.Usefulness)/(5*COUNT(*))*100 AS Useful,
+                SUM(cr.Liked)/(COUNT(*))*100 AS Liked,
+                COUNT(*) AS Total
+                FROM CourseReview cr
+                GROUP BY cr.CourseCode
+                ORDER BY Total DESC;`, 
+                (err, results) => {
+                    if (err)
+                        reject(err);
+                    resolve(results);
+                }
+            )
+        });
+    }
+
+    getCourseRatingPreviewInfo(code) {
+        super.checkConnection();
+        return new Promise((resolve, reject) => {
+            super.getConnection().query(
+                `SELECT 
+                cr.CourseCode,
+                SUM(cr.Easiness)/(5*COUNT(*))*100 AS Easy, 
+                SUM(cr.Usefulness)/(5*COUNT(*))*100 AS Useful,
+                SUM(cr.Liked)/(COUNT(*))*100 AS Liked,
+                COUNT(*) AS Comments
+                FROM CourseReview cr
+                GROUP BY cr.CourseCode
+                HAVING cr.CourseCode=?
+                ORDER BY Comments DESC`,
+                [code],
+                (err, results) => {
+                    if (err)
+                        reject(err);
+                    resolve(results);
+                }
+            )
+        });
+    }
 }
 
 module.exports = {courseDAO};
