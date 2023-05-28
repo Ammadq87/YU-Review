@@ -1,12 +1,12 @@
 import {useParams} from 'react-router-dom'
-import Banner from "../components/Banner";
-import Navbar from "../components/Navbar";
-import Review from '../components/Review';
-import NewNavbar from '../components/NewNavbar';
-import RatingPreview from '../components/RatingPreview';
-import CourseSchedule from '../components/CourseSchedule';
+import Banner from "../../components/Banner/Banner.jsx";
+import Navbar from "../../components/Navbar/Navbar";
+import Review from '../../components/Review/Review';
+import NewNavbar from '../../components/Navbar/NewNavbar';
+import RatingPreview from '../../components/RatingPreview/RatingPreview';
+import CourseSchedule from '../../components/CourseSchedule/CourseSchedule';
 import axios from 'axios';
-import './styles/Course.css';
+import './Course.css';
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsDown, faThumbsUp, faHeart, faCirclePlus } from '@fortawesome/free-solid-svg-icons'

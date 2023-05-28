@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import './styles/RatingPreview.css'
+import './RatingPreview.css'
 
 /**
  * Displays the percentages for the ratings based course/professor

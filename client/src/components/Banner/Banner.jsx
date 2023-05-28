@@ -1,4 +1,4 @@
-import './styles/Banner.css'
+import './Banner.css'
 
 /**
  * Banner component used for every page to display the title and any subtitles 

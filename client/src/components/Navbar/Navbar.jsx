@@ -1,5 +1,5 @@
-import './styles/Navbar.css'
-import Search from './Search.jsx'
+import './Navbar.css'
+import Search from '../Search/Search.jsx'
 import { useState } from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 

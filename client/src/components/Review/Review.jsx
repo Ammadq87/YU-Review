@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf, faUpLong, faDownLong } from '@fortawesome/free-solid-svg-icons'
-import './styles/Review.css'
+import './Review.css'
 
 /*
 ToDo:

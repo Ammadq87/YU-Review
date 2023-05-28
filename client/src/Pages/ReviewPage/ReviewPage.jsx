@@ -1,8 +1,8 @@
-import Banner from "../components/Banner";
-import Navbar from "../components/Navbar";
+import Banner from "../../components/Banner/Banner";
+import Navbar from "../../components/Navbar/Navbar";
 import axios from 'axios';
 import { useEffect, useState } from "react";
-import Review from '../components/Review.jsx';
+import Review from '../../components/Review/Review.jsx';
 
 /**
  * @deprecated split into Course and Professor components
