@@ -1,5 +1,5 @@
-import NewSearch from "./NewSearch"
-import './styles/NewNavbar.css'
+import NewSearch from "../Search/NewSearch.jsx"
+import './NewNavbar.css'
 export default function NewNavbar () {
     return (
         <header className="header">

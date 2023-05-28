@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './styles/CourseSchedule.css'
+import './CourseSchedule.css'
 
 export default function CourseSchedule (props) {
 

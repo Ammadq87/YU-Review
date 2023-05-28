@@ -1,6 +1,6 @@
-import './styles/Welcome.css';
-import NewNavbar from '../components/NewNavbar';
-import Listing from '../components/Listing';
+import './Welcome.css';
+import NewNavbar from '../../components/Navbar/NewNavbar';
+import Listing from '../../components/Listing/Listing';
 
 export default function Welcome() {
     return (

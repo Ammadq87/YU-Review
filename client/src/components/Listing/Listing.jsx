@@ -1,4 +1,4 @@
-import './styles/Listing.css'
+import './Listing.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 
