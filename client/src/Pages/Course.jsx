@@ -2,6 +2,8 @@ import {useParams} from 'react-router-dom'
 import Banner from "../components/Banner";
 import Navbar from "../components/Navbar";
 import Review from '../components/Review';
+import NewNavbar from '../components/NewNavbar';
+import RatingPreview from '../components/RatingPreview';
 import CourseSchedule from '../components/CourseSchedule';
 import axios from 'axios';
 import './styles/Course.css';
@@ -16,6 +18,7 @@ TODO:
 
 export default function Course () {
     let {courseCode} = useParams();
+    const ratingPreviewCode = courseCode;
     const [isFallTerm, setIsFallTerm] = useState(true);
     let title; 
 
@@ -109,8 +112,10 @@ export default function Course () {
 
     return (
         <div className="ReviewPage">
-            <Navbar/>
+            <NewNavbar/>
             <Banner data={bannerData}/>
+
+            <RatingPreview data={{'type': 'course', 'code': courseCode}}/>
 
             <div className="ReviewPageContent">
                 <div className="details">

@@ -1,0 +1,54 @@
+header {
+    width: 100%;
+    background-color: white;
+}
+
+.Navbar {
+    display: flex;
+    background-color: white;
+    height: 7em;
+    width: 60%;
+    margin: auto;
+    padding: 0%;
+}
+
+.Navbar > .siteLogo {
+    width: 15%;
+    display: inline;
+    margin: 0%;
+    padding: 0%;
+    min-width: 111px;
+}
+
+.Navbar > .siteLogo > h3 {
+    text-align: left;
+    margin-top: calc((2.2em));
+}
+
+.Navbar > .siteLogo > h3 > a {
+    text-decoration: none;
+    color: black;
+}
+
+.Navbar > .siteLogo > h3 > a > span {
+    color: #E31837;
+}
+
+.Navbar > .links {
+    width: 17%;
+    display: flex;
+    padding: 0%;
+    margin: 0%;
+    padding-top: 1.5em;
+}
+
+.Navbar > .links > h4 {
+    padding: 0%;
+    margin: 0%;
+    padding-top: 1em;
+}
+
+.Navbar > .links > h4 > a {
+    text-decoration: none;
+    color: #E31837;
+}

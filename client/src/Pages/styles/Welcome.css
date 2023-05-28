@@ -1,0 +1,18 @@
+.Welcome {
+    background-color: rgb(242,243,247);
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.Welcome > .description {
+    width: 60%;
+    margin: auto;
+    padding-top: 2em;
+}
+
+.Welcome > .description > .intro {
+    background-color: white;
+    padding: 2em;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #b3b3b3;
+}
