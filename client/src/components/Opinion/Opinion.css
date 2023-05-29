@@ -1,0 +1,79 @@
+.controls {
+    background-color: white;
+    margin-top: 16px;
+    display: flex;
+    padding: 5px;
+    box-shadow: 0px 4px 4px #b3b3b3;
+    border-radius: 5px;
+}
+
+.controls > .rate {
+    display: flex;
+    width: 50%;
+    margin-top: 8px;
+}
+
+.controls > .rate > .links {
+    width: 27%;
+    display: flex;
+}
+
+.controls > .rate > .links > .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #9e9e9e;
+    color: #747474;
+    border-radius: 5px;
+    padding-top: 4px;
+    margin: 10px;
+}
+
+.controls > .rate > h3 {
+    width: 33%;
+    margin-left: 16px;
+    color: rgb(81, 81, 81);
+
+}
+
+.controls > .rate > .reviewBtn {
+    width: 40%;
+}
+
+.controls > .rate > .reviewBtn > button {
+    width: 150px;
+    float: right;
+    margin-right: 5px;
+}
+
+.controls > .otherContainer {
+    display: flex;
+    width: 50%;
+    border-left: 2px solid #747474;
+}
+
+.controls > .otherContainer > .other {
+    display: flex;
+    width: 50%;
+    margin: auto;
+}
+
+.controls > .otherContainer > .other > .opinion {
+    text-align: center;
+    margin: auto;
+}
+
+.controls > .otherContainer > .other > .opinion > .value {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 32px;
+}
+
+
+.controls > .otherContainer > .other > .opinion > .label {
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: 600;
+}

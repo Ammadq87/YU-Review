@@ -1,26 +1,21 @@
 .ReviewPageContent {
     width: 60%;
     margin: auto;
-    padding-left: 25px;
 }
 
 .details > .timeTable {
     margin-top: 15px;
-    box-shadow: 2px 2px 2px lightgray;
     border-radius: 5px;
     background-color: white;
+    box-shadow: 0px 4px 4px #b3b3b3;
 }
 
 .details > .timeTable > h3 {
-    /* color: white; */
     margin: auto;
     text-align: left;
-    margin-left: 15px;
-    padding-top: 15px;
+    margin-left: 1em;
+    padding-top: 1em;
     color: rgb(81, 81, 81);
-    /* width: 50%; */
-    /* padding-left: 25px; */
-    /* vertical-align: bottom; */
 }
 
 .details > .timeTable > .terms > button {
@@ -32,80 +27,4 @@
 
 .details > .timeTable > .terms > button:active {
     transform: scale(0.99);
-}
-
-.otherActions > p {
-    display: inline;
-    font-size: 1em;
-    font-weight: 600;
-    color: rgb(69, 69, 69);
-}
-
-.otherActions > .favouriteBtn {
-    font-size: 1.75em;
-    margin-left: 15px;
-
-}
-
-.otherActions > .takenCourseBtn {
-    font-size: 1.75em;
-    margin-left: 15px;
-
-}
-
-.otherActions > .favouriteBtn > a {
-    color: rgb(227,24,55);
-} 
-
-.otherActions > .takenCourseBtn > a {
-    color: rgb(50, 50, 255);
-}
-
-
-.actions {
-    margin-top: 15px;
-    font-size: 1.25em;
-    font-weight: 600;
-    color: rgb(69, 69, 69);
-    border: 1px solid lightgray;
-    padding: 10px;
-    box-shadow: 2px 2px 2px lightgray;
-    border-radius: 5px;
-    width: 68%;
-    background-color: white;
-}
-
-.ratingActions {
-    display: flex;
-}
-
-.ratingActions > .ratings {
-    width: 70%;
-    display: flex;
-}
-
-.ratingActions > .ratings > .buttons {
-    display: flex;
-    margin: auto;
-    margin-left: 25px;
-}
-
-.ratingActions > .ratings > .buttons > .icon {
-    background-color: transparent;
-    width: 35px;
-    text-align: center;
-    height: 35px;
-    border-radius: 5px;
-    margin-right: 5px;
-    border: 1px solid lightgray;
-    color: lightgray;
-}
-
-.ratingActions > .reviewBtn {
-    width: 30%;
-}
-
-.ratingActions > .reviewBtn > button {
-    width: 100%;
-    padding: 10px;
 }
