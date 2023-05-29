@@ -1,12 +1,10 @@
 table {
-    /* border: 1px solid red; */
     padding-left: 10px;
     padding-right: 10px;
 }
 
 table > tbody > tr > td, th {
     width: fit-content;
-    /* border: 1px solid black; */
     text-align: left;
     height: 1em;
     padding-left: 15px;
@@ -25,7 +23,6 @@ table > tbody > tr > td, th {
 table > tbody > tr > td {
     color: gray;
     padding-left: 15px;
-
 }
 
 table > tbody > tr > .section{

@@ -1,6 +1,6 @@
 import {useParams} from 'react-router-dom'
 import Banner from "../../components/Banner/Banner.jsx";
-import Navbar from "../../components/Navbar/Navbar";
+import Opinion from '../../components/Opinion/Opinion.jsx';
 import Review from '../../components/Review/Review';
 import NewNavbar from '../../components/Navbar/NewNavbar';
 import RatingPreview from '../../components/RatingPreview/RatingPreview';
@@ -138,28 +138,11 @@ export default function Course () {
 
                         {isFallTerm && <CourseSchedule pageData={pageData?.ClassInfo?.['Fall']}></CourseSchedule>}
                         {!isFallTerm && <CourseSchedule pageData={pageData?.ClassInfo?.['Winter']}></CourseSchedule>}
-                        
 
                     </div>
-                    <div className="actions">
-                        <div className="ratingActions">
-                            <div className="ratings">
-                                <p>Opinions on {title}?</p>
-                                <div className="buttons">
-                                    <a href='/' className='icon'><FontAwesomeIcon icon={faThumbsUp}/></a>
-                                    <a href='/' className='icon'><FontAwesomeIcon icon={faThumbsDown}/></a>
-                                </div>
-                            </div>
-                            <div className="reviewBtn">
-                                <button className='reviewBtn'>Add a Review</button>
-                            </div>
-                        </div>
-                        <div className="otherActions">
-                            <p>Course actions: </p>
-                            <p className='favouriteBtn'><a href='/'><FontAwesomeIcon icon={faHeart}/></a></p>
-                            <p className='takenCourseBtn'><a href='/' ><FontAwesomeIcon icon={faCirclePlus}/></a></p>
-                        </div>
-                    </div>
+                    
+                    <Opinion data={{'title': title || 'the course'}}/>
+
                     <div className="reviews">
                         {
                             pageData?.ReviewData?.data?.map((data, i) => {
