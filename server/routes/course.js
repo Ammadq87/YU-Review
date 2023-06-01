@@ -22,6 +22,7 @@ const axios = require('axios');
  * @param {*} next 
  */
 let courseData = [];
+// ToDo - remove middle and make it a proper function -- data does not seem to update
 const setYorkCourseInfo = async (req, res, next) => {
     try {
         const courseListResponse = await axios.get('https://yorkapi.isaackogan.com/v1/courses/info/FW_2022/codes');
@@ -49,7 +50,7 @@ const setYorkCourseInfo = async (req, res, next) => {
         })
 
         req.courseData = courseData;
-    
+        console.log(courseData[0]);
         next();
     } catch (error) {
         console.error(error);
@@ -95,7 +96,7 @@ router.get('/ratingPreview/:code', async (req, res) => {
 
     const order = ['Liked', 'Easy', 'Useful', 'Comments'];
     const output = order.map(lbl => {
-        return {'label': lbl, 'value': lbl !== 'Comments' ? data[lbl]+'%' : data[lbl]};
+        return {'label': lbl, 'value': lbl !== 'Comments' ? (data ? data[lbl]+'%' : 'N/A') : (data ? data[lbl] : 'N/A')};
     })
     res.send(output);
 })

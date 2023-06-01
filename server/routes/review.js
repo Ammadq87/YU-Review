@@ -38,8 +38,17 @@ router.get('/professor/:name', async (req, res) => {
     res.json(reviews);
 })
 
-router.post('/course/:courseCode', async (req,res) => {
-
+router.post('/course', async (req,res) => {
+    const formInput = req.body;
+    formInput['StudentID'] = 1;
+    formInput['Username'] = 'Ammad';
+    try {
+        const _reviewDAO = new reviewDAO.reviewDAO();
+        const submit = await _reviewDAO.submitCourseReview(formInput);
+        res.send(submit);
+    } catch (e) {
+        res.sendStatus(400);
+    }
 })
 
 router.post('/professor/:professorID', async (req,res) => {
@@ -66,5 +75,18 @@ router.post('/voteProfessorReview', async (req, res) => {
     await _reviewDAO.voteProfessorReview(sID, rID, vote);
     res.send("Up/Down Vote Success");
 })
+
+//#region Functions
+
+/**
+ * 
+ * @param {number} format 0: dotted, 1:dashed
+ * @param {string} code course code 
+ */
+const reformtCourseCodeURL = (format, code) => {
+    const last = code.lastIndexOf(format === 0 ? '-' : '.');
+    return code.substring(0,last) + '.' +code.substring(last+1, code.length);
+}
+//#endregion
 
 module.exports = router;

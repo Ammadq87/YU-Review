@@ -128,6 +128,31 @@ class reviewDAO extends connectionDAO {
             console.log(e);
         }
     }
+
+    submitCourseReview(params) {
+        super.checkConnection();
+        return new Promise((resolve, reject) => {
+            super.getConnection().query(
+                `INSERT INTO 
+                CourseReview 
+                VALUES (
+                    0, 
+                    ?,?,?,?,
+                    CURDATE(), 
+                    ?,?,?,?,?,
+                    0, 
+                    0);`, 
+                [params.CourseCode, params.StudentID, params.ProfessorName, params.Username, params.Review, params.Easiness, params.Usefulness, params.Liked, params.Retake],
+                (err) => {
+                    if (err){
+                        console.log(err);
+                        reject(err);
+                    }
+                    resolve(true);
+                }
+            )
+        });
+    }
 }
 
 module.exports = {reviewDAO};

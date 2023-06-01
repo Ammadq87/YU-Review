@@ -5,7 +5,6 @@ import Listing from '../../components/Listing/Listing';
 export default function Welcome() {
     return (
         <div className="Welcome">
-            <NewNavbar/>
             <div className="description">
                 <h1>Welcome 👋</h1>
                 <div className='intro'>

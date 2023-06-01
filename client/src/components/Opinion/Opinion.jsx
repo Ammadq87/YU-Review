@@ -2,12 +2,8 @@ import './Opinion.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsDown, faThumbsUp, faHeart, faCirclePlus, faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
 
-const favouriteBtnStyle = {
-
-}
 
 export default function Opinion (props) {
-
 
     return (
         <div className="controls">
@@ -22,7 +18,7 @@ export default function Opinion (props) {
                 </div>
                 
                 <div className="reviewBtn">
-                    <button style={favouriteBtnStyle} className='reviewBtn'>Add a Review</button>
+                    <button className='reviewBtn' onClick={() => {location.href += '/review'}}>Add a Review</button>
                 </div>
             
             </div>
