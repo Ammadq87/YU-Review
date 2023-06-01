@@ -36,7 +36,7 @@ export default function RatingPreview (props) {
                     previewList.map((preview, i) => {
                         return (
                             <div key={i} className="previewLabel">
-                                <p className="value">{preview['value']}</p>
+                                <p className="value">{parseInt(preview['value'])}{preview['label'] !== 'Comments' ? '%':''}</p>
                                 <p className="label">{preview['label']}</p>
                             </div>
                         )

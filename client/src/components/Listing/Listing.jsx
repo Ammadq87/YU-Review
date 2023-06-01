@@ -45,12 +45,12 @@ export default function Listing () {
     }
 
     const db = axios.create({
-        baseURL: 'http://localhost:3000/api/course/courseListings'
+        baseURL: 'http://localhost:3000/api/course'
     });
 
     const getCourseData = async () => {
         try {
-            const res = await db.get('/');
+            const res = await db.get('/courseListings');
             const data = res['data'];
             setCourseList(data);
         } catch (err) {

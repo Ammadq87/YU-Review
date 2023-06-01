@@ -11,11 +11,6 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsDown, faThumbsUp, faHeart, faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 
-/*
-TODO:
-
-*/
-
 export default function Course () {
     let {courseCode} = useParams();
     const ratingPreviewCode = courseCode;
@@ -112,7 +107,6 @@ export default function Course () {
 
     return (
         <div className="ReviewPage">
-            <NewNavbar/>
             <Banner data={bannerData}/>
 
             <RatingPreview data={{'type': 'course', 'code': courseCode}}/>
