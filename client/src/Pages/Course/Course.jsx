@@ -130,8 +130,8 @@ export default function Course () {
                                 }>Winter 2022</button>
                         </div>
 
-                        {isFallTerm && <CourseSchedule pageData={pageData?.ClassInfo?.['Fall']}></CourseSchedule>}
-                        {!isFallTerm && <CourseSchedule pageData={pageData?.ClassInfo?.['Winter']}></CourseSchedule>}
+                        {<CourseSchedule pageData={pageData?.ClassInfo?.[isFallTerm?'Fall':'Winter']}></CourseSchedule>}
+                        {/* {!isFallTerm && <CourseSchedule pageData={pageData?.ClassInfo?.['Winter']}></CourseSchedule>} */}
 
                     </div>
                     

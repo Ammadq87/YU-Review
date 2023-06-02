@@ -19,11 +19,11 @@ INSERT INTO Student VALUES
 SELECT * FROM Student;
 
 INSERT INTO CourseReview VALUES 
-(0, 'LE-EECS-3311-3.00', 1, 'Hadi_Hemmati', 'Ammad', CURDATE()-10, 'Fun course, tough material', 2, 5, 1, 0, 0, 0),
-(0, 'LE-EECS-3311-3.00', 6, 'Song_Wang', 'Thanushan', CURDATE()-2, 'Mid Course, Easy stuff', 4, 3, 1, 1, 0, 0),
-(0, 'LE-EECS-3311-3.00', 5, 'Song_Wang', 'Akshar', CURDATE()-3, 'I love software design', 2, 2, 0, 0, 0, 0),
+(0, 'LE-EECS-3311-3.00', 1, 'Hadi_Hemmati', 'Ammad', '2023-04-21', 'Fun course, tough material', 2, 5, 1, 0, 0, 0),
+(0, 'LE-EECS-3311-3.00', 6, 'Song_Wang', 'Thanushan', '2023-05-01', 'Mid Course, Easy stuff', 4, 3, 1, 1, 0, 0),
+(0, 'LE-EECS-3311-3.00', 5, 'Song_Wang', 'Akshar', '2023-05-22', 'I love software design', 2, 2, 0, 0, 0, 0),
 (0, 'LE-EECS-3311-3.00', 5, 'Hadi_Hemmati', 'Bryan', CURDATE(), 'i ahte dsa', 5, 1, 0, 1, 0, 0),
-(0, 'LE-EECS-3101-3.00', 6, 'Song_Wang', 'Thanushan', CURDATE()-1, 'Prof is terrible at explianing', 5, 1, 0, 1, 0, 0);
+(0, 'LE-EECS-3101-3.00', 6, 'Song_Wang', 'Thanushan', '2023-05-06', 'Prof is terrible at explianing', 5, 1, 0, 1, 0, 0);
 SELECT * FROM CourseReview;
 
 INSERT INTO ProfessorReview VALUES 
