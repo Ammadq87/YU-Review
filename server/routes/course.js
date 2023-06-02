@@ -25,6 +25,9 @@ let courseData = [];
 // ToDo - remove middle and make it a proper function -- data does not seem to update
 const setYorkCourseInfo = async (req, res, next) => {
     try {
+        if (courseData.length > 0)
+            courseData = [];
+            
         const courseListResponse = await axios.get('https://yorkapi.isaackogan.com/v1/courses/info/FW_2022/codes');
         
         const _courseDAO = new courseDAO.courseDAO();
