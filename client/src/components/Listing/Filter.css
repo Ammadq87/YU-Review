@@ -1,0 +1,54 @@
+.filterContainer {
+    padding: 16px;
+    align-items: center;
+    margin-top: 0;
+}
+
+.filterContainer > p {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.Filter {
+    display: flex;
+    padding: 0%;
+    margin: 0%;
+    padding-left: 16px;
+    background-color: #ECECEC;
+    border-radius: 5px;
+}
+
+.Filter > .buttonFilter, .rangeFilter {
+    margin-right: 16px;
+}
+
+.Filter > .buttonFilter {
+    display: flex;
+    width: fit-content;
+}
+
+.Filter > .buttonFilter, .rangeFilter > p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1E1E1E;
+}
+
+.Filter > .buttonFilter > .filterBtns {
+    display: flex;
+    align-items: center;
+}
+
+.Filter > .buttonFilter > .filterBtns > button {
+    width: 65px;
+    height: 25px;
+    font-size: 14px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 15px;
+    background-color: #C0BA99;
+}
+
+.Filter > .rangeFilter {
+    display: flex;
+    width: fit-content;
+}

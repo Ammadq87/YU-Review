@@ -17,6 +17,7 @@
 */
 
 import { useEffect, useState } from "react";
+import './Filter.css'
 
 export default function Filter(props) {
     const {filters} = props?.data;
@@ -57,12 +58,14 @@ export default function Filter(props) {
         if (filterType === 'button') {
             return (
                 <div className="buttonFilter" key={i}>
-                    <p className='filterText'>{filterName}</p>
+                    <p className='filterText'>{filterName}:</p>
                     <div className="filterBtns">
                         {
                             filterValues.map((value, j) => {
                                 return (
-                                    <button onClick={() => handleSelectedFilterBtn(value, filterName)} key={j}>{value}</button>
+                                    <button 
+                                        style={{backgroundColor: selectedFilter[filterName]?.includes(value) ? '#91D772' : '#C0BA99'}}
+                                        onClick={() => handleSelectedFilterBtn(value, filterName)} key={j}>{value}</button>
                                 )
                             })
                         }
@@ -73,24 +76,33 @@ export default function Filter(props) {
         
         else if(filterType === 'range') {
             return (
-                <div className="rangefilter" key={i}>
+                <div className="rangeFilter" key={i}>
                     <p className="filterText">{filterName}:</p>
                     <input onChange={(e) => handleSelectedRangeInput(e, filterName)} type="range" min={0} max={filterValues[0]}/>
-                    <p className="rangeText">≥{selectedFilter[filterName] ? selectedFilter[filterName] : filterValues[0]/4}</p>
+                    <p className="rangeText">≥{selectedFilter[filterName] ? selectedFilter[filterName] : filterValues[0]}</p>
                 </div>
             )
         }
     }
 
     return (
-        <div className="Filter">
-            {
-                filters?.map((filter, i) => {
-                    return (
-                        GenerateFilter(filter, i)
-                    )
-                })
-            }
+        <div className="filterContainer">
+            <p style={{
+                fontSize: '20px',
+                color: '#1E1E1E',
+                fontWeight: 'bold'
+            }}>Filter(s)</p>
+            <div className="Filter">
+                
+                {
+                    filters?.map((filter, i) => {
+                        return (
+                            GenerateFilter(filter, i)
+                        )
+                    })
+                }
+            </div>
         </div>
+
     )
 }

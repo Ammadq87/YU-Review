@@ -1,5 +1,6 @@
 import './Listing.css'
 import { useEffect, useState } from 'react'
+import Filter from './Filter';
 import axios from 'axios';
 
 const pageSize = 25;
@@ -7,12 +8,21 @@ const pageSize = 25;
 export default function Listing () {
     
     //#region Filter useStates
-    const levelFilterBtns = ['1XXX', '2XXX', '3XXX', '4XXX'];
     const [showCourses, setShowCourses] = useState(true);
-    const [levelFilter, setLevelFilter] = useState([0,0,0,0]);
+    const [courseList, setCourseList] = useState([]); 
+    const [listingObject, setListingObject] = useState('course');
+    const [filter, setFilters] = useState({});
+
+    const handleFilters = (_filter) => {
+        setFilters(_filter);
+    }
+
+    const handleTabSwitch = (value) => {
+        setShowCourses(value);
+        setListingObject(value ? 'course' : 'professor')
+    }
     //#endregion
 
-    const [courseList, setCourseList] = useState([]); 
 
     //#region LazyLoading Setup
     const [currentPage, setCurrentPage] = useState(1);
@@ -27,70 +37,53 @@ export default function Listing () {
         getCourseData();
     }, [])
 
-    const handleLevelFilter = (i) => {
-        const updatedFilter = [...levelFilter];
-        updatedFilter[i] = updatedFilter[i] === 0 ? 1 : 0;
-        setLevelFilter(updatedFilter);
-        filterResults();
-    }
-
-    const filterResults = () => {
-        let currentResults = [...currentCourses];
-        currentResults = currentResults.filter(course => {
-            if (levelFilter[0] === 1 && course['CourseCode'].split('-')[2][0] === 1)
-                return course;
-        })
-        console.log(currentResults);
-        setCourseList(currentResults);
-    }
-
     const db = axios.create({
-        baseURL: 'http://localhost:3000/api/course'
+        baseURL: 'http://localhost:3000/api'
     });
 
     const getCourseData = async () => {
         try {
-            const res = await db.get('/courseListings');
-            const data = res['data'];
+            let data;
+            if (listingObject === 'course') {
+                const res = await db.get('/course/courseListings');
+                data = res['data'];
+            } else if (listingObject === 'professor') {
+                const res = await db.get('/professor/professorListings');
+                data = res['data'];
+            }
+            console.log(data)
             setCourseList(data);
         } catch (err) {
             console.log(err);
         }
     };
 
-
+    const filterConfig = {
+        'filters': [
+            {
+                filterName: 'Course Code',
+                filterType: 'button',
+                filterValues: ['1XXX', '2XXX', '3XXX', '4XXX']
+            },
+            {
+                filterName: 'Min # of Ratings',
+                filterType: 'range',
+                filterValues: [courseList ? courseList.length : 0]
+            }
+        ]
+    }
     
     return (
         <div className="Listing">
             <div className="actions">
-                <button onClick={() => setShowCourses(true)} style={{'borderTopLeftRadius': '5px', 'borderTopRightRadius': '0px', 'backgroundColor': showCourses ? '#E31837' : '#ECECEC', 'color': showCourses ? 'white' : '#747474' }}>Courses</button>
-                <button onClick={() => setShowCourses(false)} style={{'borderTopLeftRadius': '0px', 'borderTopRightRadius': '5px', 'backgroundColor': !showCourses ? '#E31837' : '#ECECEC', 'color': !showCourses ? 'white' : '#747474'}}>Professors</button>
+                <button 
+                    style={{backgroundColor: showCourses ? '#E31837' : '#ECECEC', color: showCourses ? 'white' : '#747474'}}
+                    onClick={() => handleTabSwitch(true)}>Courses</button>
+                <button 
+                    style={{backgroundColor: showCourses ? '#ECECEC' : '#E31837', color: showCourses ? '#747474' : 'white'}}
+                    onClick={() => handleTabSwitch(false)}>Professors</button>
             </div>
-            <div className="filters">
-                <p>Filter(s)</p>
-                <div className="filterActions">
-                    <div className="levelFilter">
-                        <p>Level:</p>
-                        <div className="options">
-                            {
-                                levelFilterBtns.map((name, i) => {
-                                    return (
-                                        <button style={{'backgroundColor': levelFilter[i] === 0 ? '#C0BA99' : '#91D772' }} onClick={() => handleLevelFilter(i)} key={i}>{name}</button>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-
-                    <div className="ratingRange">
-                        <p>Min # of Ratings:</p>
-                        <div className="range">
-                            <input type="range" />
-                        </div>
-                        <p>≥300</p>
-                    </div>
-                </div>
-            </div>
+            <Filter data={filterConfig} setFilters={handleFilters}/>
             <div className="resultsPanel">
                     <table>
                     <tbody>
@@ -102,7 +95,7 @@ export default function Listing () {
                             <th>Liked</th>
                         </tr>
                         {
-                            currentCourses.map((c, i) => {
+                            currentCourses?.map((c, i) => {
                                 return (
                                     GenerateRow(c,i)
                                 )
@@ -113,7 +106,7 @@ export default function Listing () {
                 </table>
                 <div className="paginationControls">
                     <button onClick={() => setCurrentPage((p) => p-1)}disabled={endIndex === 1}>Show Prev {pageSize}</button>
-                    <button onClick={() => setCurrentPage((p) => p+1)} disabled={endIndex >= courseList.length}>Show Next {pageSize}</button>
+                    <button onClick={() => setCurrentPage((p) => p+1)} disabled={endIndex >= courseList?.length}>Show Next {pageSize}</button>
                 </div>
             </div>
         </div>
