@@ -1,7 +1,87 @@
 html {
   background-color: rgb(242,243,247);
   scroll-behavior: smooth;
+  font-family: "Inter";
+  color: #414141;
+
 }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 8px;
+  display: block;
+  color: black;
+}
+
+.textInput {
+  width: calc(100% - 48px);
+  margin: auto;
+  padding: 16px;
+  background-color: rgb(241, 241, 241);
+  color: #414141;
+  font-weight: 100;
+  font-size: 16px;
+  border-radius: 5px;
+  border: #ECECEC;
+  margin: 8px;
+}
+
+.pageLink {
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.pageLink:hover {
+  text-decoration: underline;
+  transition: 0.15s;
+  color: #6495ff;
+}
+
+.selectedBtn {
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  background-color: #E31837;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: white;
+  margin: 8px;
+}
+
+.selectedBtn:hover {
+  transition: 0.15s;
+  background-color: #f01839;
+}
+
+.unselectedBtn {
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  background-color: #ECECEC;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: #747474;
+  margin: 8px;
+}
+
+.unselectedBtn:hover {
+  transition: 0.15s;
+  background-color: #cac9c9;
+}
+
+.selectedBtn:active {
+  transform: scale(0.95);
+}
+
+.unselectedBtn:active {
+  transform: scale(0.95);
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
