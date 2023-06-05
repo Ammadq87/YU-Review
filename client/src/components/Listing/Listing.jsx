@@ -105,8 +105,8 @@ export default function Listing () {
                     </tbody>
                 </table>
                 <div className="paginationControls">
-                    <button onClick={() => setCurrentPage((p) => p-1)}disabled={endIndex === 1}>Show Prev {pageSize}</button>
-                    <button onClick={() => setCurrentPage((p) => p+1)} disabled={endIndex >= courseList?.length}>Show Next {pageSize}</button>
+                    <button onClick={() => setCurrentPage((p) => p-1)} disabled={endIndex === 1} className='selectedBtn'>← Show Prev {pageSize}</button>
+                    <button onClick={() => setCurrentPage((p) => p+1)} disabled={endIndex >= courseList?.length} className='selectedBtn'>Show Next {pageSize} →</button>
                 </div>
             </div>
         </div>

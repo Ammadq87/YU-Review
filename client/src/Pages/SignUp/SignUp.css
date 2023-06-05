@@ -1,4 +1,19 @@
-.signUpForm {
+.signUpPage {
+    background-color: white;
+    width: 45%;
+    margin: auto;
+    padding: 16px;
+    margin-top: 32px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px #b3b3b3;
+}
+
+.signUpPage > .multiColumn {
+    display: flex;
+}
+
+
+/*.signUpForm {
      width: 60%;
      margin: auto;
      margin-top: 25px;
@@ -55,7 +70,7 @@ table {
     display: block;
 }
 
-button {
+/* button {
     width: 300px;
     height: 3em;
     border-radius: 5px;
@@ -67,8 +82,9 @@ button {
     margin-top: 10px;
     margin-bottom: 10px;
     cursor: pointer;
-}
+} 
 
 button:active {
     transform: scale(0.95);
 }
+*/

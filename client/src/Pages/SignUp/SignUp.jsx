@@ -4,6 +4,9 @@ import './SignUp.css'
 import Form from '../../components/Form/Form';
 import { useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsDown, faThumbsUp, faHeart, faCirclePlus, faLock } from '@fortawesome/free-solid-svg-icons'
+
 
 /*
 ToDo:
@@ -27,17 +30,20 @@ export default function SignUp(props) {
     ];
 
     return (
-        <div className="SignUpPage">
-            <Banner data={bannerData}/>
+        <div className="signUpPage">
+            <h1>Sign Up</h1>
             
-            <div className="signUpForm">
-
-                <div className='image'>
-                    <img src="https://yorkulions.ca/images/2020/5/20/10199_YUAT_Lions_RGB_black_lion_black_YU.png" alt="" />
-                </div>
-
-                <Form data={{'fields': fields, 'endPoint': '/users/signUp/'}}/>
+            <div className="multiColumn">
+                <input className="textInput" placeholder='First Name' type='text'></input>
+                <input className="textInput" placeholder='Second Name' type='text'></input>
             </div>
+
+            <input className="textInput" placeholder='Email' type='email'></input>
+            <input className="textInput" placeholder='Password' type='password'></input>
+            <input className="textInput" placeholder='Confirm Password' type='password'></input>
+
+            <a className="pageLink" href='/Login' style={{width: 'fit-content', color: '#3876F9', display: 'block', margin: '8px', marginBottom: '16px'}}>Already have an account?</a>
+            <button className='selectedBtn'>Get Started!</button>
         </div>
     )
 }
